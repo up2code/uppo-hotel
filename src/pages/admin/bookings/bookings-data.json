@@ -1,0 +1,182 @@
+[
+    {
+        "customerName": "Alice Johnson",
+        "guests": 2,
+        "roomType": "Deluxe Suite",
+        "amount": 320,
+        "bedType": "King",
+        "checkIn": "2025-09-20",
+        "checkOut": "2025-09-23"
+    },
+    {
+        "customerName": "Brian Lee",
+        "guests": 1,
+        "roomType": "Standard Room",
+        "amount": 120,
+        "bedType": "Queen",
+        "checkIn": "2025-09-18",
+        "checkOut": "2025-09-19"
+    },
+    {
+        "customerName": "Catherine Smith",
+        "guests": 3,
+        "roomType": "Family Suite",
+        "amount": 450,
+        "bedType": "Double",
+        "checkIn": "2025-09-25",
+        "checkOut": "2025-09-28"
+    },
+    {
+        "customerName": "David Kim",
+        "guests": 2,
+        "roomType": "Executive Room",
+        "amount": 280,
+        "bedType": "King",
+        "checkIn": "2025-09-22",
+        "checkOut": "2025-09-24"
+    },
+    {
+        "customerName": "Emily Chen",
+        "guests": 4,
+        "roomType": "Presidential Suite",
+        "amount": 900,
+        "bedType": "King",
+        "checkIn": "2025-09-30",
+        "checkOut": "2025-10-03"
+    },
+    {
+        "customerName": "Frank Miller",
+        "guests": 2,
+        "roomType": "Standard Room",
+        "amount": 150,
+        "bedType": "Twin",
+        "checkIn": "2025-09-21",
+        "checkOut": "2025-09-23"
+    },
+    {
+        "customerName": "Grace Park",
+        "guests": 1,
+        "roomType": "Single Room",
+        "amount": 90,
+        "bedType": "Single",
+        "checkIn": "2025-09-19",
+        "checkOut": "2025-09-20"
+    },
+    {
+        "customerName": "Henry Adams",
+        "guests": 2,
+        "roomType": "Deluxe Suite",
+        "amount": 340,
+        "bedType": "King",
+        "checkIn": "2025-09-24",
+        "checkOut": "2025-09-27"
+    },
+    {
+        "customerName": "Isabella Turner",
+        "guests": 3,
+        "roomType": "Family Suite",
+        "amount": 470,
+        "bedType": "Double",
+        "checkIn": "2025-09-26",
+        "checkOut": "2025-09-29"
+    },
+    {
+        "customerName": "Jack Wilson",
+        "guests": 2,
+        "roomType": "Executive Room",
+        "amount": 300,
+        "bedType": "Queen",
+        "checkIn": "2025-09-28",
+        "checkOut": "2025-09-30"
+    },
+    {
+        "customerName": "Karen Young",
+        "guests": 1,
+        "roomType": "Standard Room",
+        "amount": 110,
+        "bedType": "Single",
+        "checkIn": "2025-09-29",
+        "checkOut": "2025-09-30"
+    },
+    {
+        "customerName": "Liam Scott",
+        "guests": 2,
+        "roomType": "Deluxe Suite",
+        "amount": 350,
+        "bedType": "King",
+        "checkIn": "2025-10-01",
+        "checkOut": "2025-10-04"
+    },
+    {
+        "customerName": "Mia Evans",
+        "guests": 4,
+        "roomType": "Presidential Suite",
+        "amount": 950,
+        "bedType": "King",
+        "checkIn": "2025-10-02",
+        "checkOut": "2025-10-06"
+    },
+    {
+        "customerName": "Noah Brown",
+        "guests": 2,
+        "roomType": "Executive Room",
+        "amount": 310,
+        "bedType": "Queen",
+        "checkIn": "2025-10-03",
+        "checkOut": "2025-10-05"
+    },
+    {
+        "customerName": "Olivia Davis",
+        "guests": 3,
+        "roomType": "Family Suite",
+        "amount": 480,
+        "bedType": "Double",
+        "checkIn": "2025-10-05",
+        "checkOut": "2025-10-08"
+    },
+    {
+        "customerName": "Paul Martinez",
+        "guests": 2,
+        "roomType": "Standard Room",
+        "amount": 140,
+        "bedType": "Twin",
+        "checkIn": "2025-10-06",
+        "checkOut": "2025-10-08"
+    },
+    {
+        "customerName": "Quinn Harris",
+        "guests": 1,
+        "roomType": "Single Room",
+        "amount": 95,
+        "bedType": "Single",
+        "checkIn": "2025-10-07",
+        "checkOut": "2025-10-08"
+    },
+    {
+        "customerName": "Ruby Clark",
+        "guests": 2,
+        "roomType": "Deluxe Suite",
+        "amount": 360,
+        "bedType": "King",
+        "checkIn": "2025-10-09",
+        "checkOut": "2025-10-12"
+    },
+    {
+        "customerName": "Samuel Lewis",
+        "guests": 3,
+        "roomType": "Family Suite",
+        "amount": 490,
+        "bedType": "Double",
+        "checkIn": "2025-10-10",
+        "checkOut": "2025-10-13"
+    },
+    {
+        "customerName": "Tina Walker",
+        "guests": 2,
+        "roomType": "Executive Room",
+        "amount": 320,
+        "bedType": "King",
+        "checkIn": "2025-10-12",
+        "checkOut": "2025-10-14"
+    }
+]
