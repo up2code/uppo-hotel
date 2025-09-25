@@ -10,7 +10,7 @@ export interface TextInputProps
 
 export const TextInput = ({ label, error, ...props }: TextInputProps) => {
   return (
-    <div className="flex flex-col flex-1 relative bg-red">
+    <div className="flex flex-col flex-1 relative">
       {label && (
         <label className={cn(`mb-1`, props.disabled ? "text-gray-400" : "")}>
           {label}
@@ -19,12 +19,7 @@ export const TextInput = ({ label, error, ...props }: TextInputProps) => {
       <input
         type={props.type || "text"}
         className={cn(
-          `p-2 border rounded bg-white focus:border-primary focus:outline-none `,
-          error ? "border-red-500" : "border-gray-300",
-          props.disabled
-            ? "bg-gray-200 cursor-not-allowed"
-            : "hover:border-gray-400",
-          props.className
+          `p-2 rounded bg-white border-1 focus:border-primary focus:outline-none`
         )}
         {...props}
       />

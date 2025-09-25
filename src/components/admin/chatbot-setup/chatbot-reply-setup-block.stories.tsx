@@ -4,6 +4,7 @@ import {
   ChatbotReplySetupBlock,
   ChatbotReplySetupBlockProps,
 } from "./chatbot-reply-setup-block";
+import { nanoid } from "nanoid";
 
 // More on how to set up stories at: https://storybook.js.org/docs/writing-stories#default-export
 const meta: Meta<ChatbotReplySetupBlockProps> = {
@@ -14,13 +15,64 @@ const meta: Meta<ChatbotReplySetupBlockProps> = {
   },
   tags: ["autodocs"],
   args: {
-    onSubmit: fn(),
+    onDelete: fn(),
+    onClickEdit: fn(),
+    onSave: fn(),
   },
 } satisfies Meta<typeof ChatbotReplySetupBlock>;
 
 export default meta;
 type Story = StoryObj<typeof ChatbotReplySetupBlock>;
 
-export const Default: Story = {
-  args: {},
+export const Read: Story = {
+  args: {
+    readOnly: true,
+    setup: {
+      id: nanoid(),
+    },
+  },
+};
+
+export const Edit: Story = {
+  args: {
+    setup: {
+      id: nanoid(),
+    },
+  },
+};
+
+export const ReplyWithRoomType: Story = {
+  args: {
+    setup: {
+      id: nanoid(),
+      replyFormat: "room-type",
+    },
+  },
+};
+
+export const ReplyWithMessage: Story = {
+  args: {
+    setup: {
+      id: nanoid(),
+      replyFormat: "message",
+    },
+  },
+};
+
+export const ReplyWithOptions: Story = {
+  args: {
+    setup: {
+      id: nanoid(),
+      replyFormat: "options",
+    },
+  },
+};
+
+export const Disabled: Story = {
+  args: {
+    setup: {
+      id: nanoid(),
+    },
+    disabled: true,
+  },
 };
