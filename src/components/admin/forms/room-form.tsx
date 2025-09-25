@@ -1,12 +1,13 @@
 import { nanoid } from "nanoid";
 import { useForm } from "react-hook-form";
 import { AdminHeader } from "../layouts/admin-header";
-import { TextInput, TextInputProps } from "./text-input";
 import Stack from "../layouts/stack";
 import { ImageInput } from "./image-input";
 import { Divider } from "../ui/divider";
 import { Textarea } from "./text-area";
 import { ReorderableTextInputList } from "./reorderable-text-input-list";
+import { TextInput, TextInputProps } from "@/components/input/text-input";
+import { Button } from "@/components/ui/button";
 
 interface RoomFormData extends Omit<Room, "amenities"> {
   amenities: Record<string, string>[];
@@ -39,21 +40,13 @@ const CreateRoomHeader = ({ onCancel, onCreate }: CreateRoomHeaderProps) => {
   return (
     <AdminHeader>
       <div>Create New Room</div>
-      <div className="mr-4">
-        <button
-          type="button"
-          className="bg-blue-500 text-white p-2 rounded hover:opacity-75 hover:cursor-pointer"
-          onClick={onCancel}
-        >
+      <div className="mr-4 flex gap-2">
+        <Button variant="secondary" onClick={onCancel}>
           Cancel
-        </button>
-        <button
-          type="submit"
-          className="bg-blue-500 text-white p-2 rounded hover:opacity-75 hover:cursor-pointer"
-          onClick={onCreate}
-        >
+        </Button>
+        <Button variant="default" type="submit" onClick={onCreate}>
           Create
-        </button>
+        </Button>
       </div>
     </AdminHeader>
   );
@@ -68,14 +61,10 @@ const UpdateRoomHeader = ({ title, onSubmit }: UpdateRoomHeaderProps) => {
   return (
     <AdminHeader>
       <div>{title}</div>
-      <div className="mr-4">
-        <button
-          type="submit"
-          className="bg-blue-500 text-white p-2 rounded hover:opacity-75 hover:cursor-pointer"
-          onClick={onSubmit}
-        >
+      <div className="mr-4 flex gap-2">
+        <Button variant="default" type="submit" onClick={onSubmit}>
           Update
-        </button>
+        </Button>
       </div>
     </AdminHeader>
   );
@@ -89,7 +78,6 @@ export interface RoomFormProps {
 }
 
 export const RoomForm = ({ mode, room, loading, onSubmit }: RoomFormProps) => {
-  console.log("RoomForm room:", room);
   // Hook form
   const { handleSubmit, register, control } = useForm<RoomFormData>({
     defaultValues: {
@@ -131,7 +119,7 @@ export const RoomForm = ({ mode, room, loading, onSubmit }: RoomFormProps) => {
           {mode === "edit" ? "Edit" : "Create"} Room
         </h2>
 
-        <TextInput label="Name" error="Please fill" {...register("name")} />
+        <TextInput label="Room Type *" {...register("name")} />
 
         <Stack direction="row">
           <TextInput label="Room size(sqm)*" {...register("roomSize")} />

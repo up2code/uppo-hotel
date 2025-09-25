@@ -3,7 +3,7 @@ import { Dropdown, DropdownProps } from "./dropdown";
 
 // More on how to set up stories at: https://storybook.js.org/docs/writing-stories#default-export
 const meta: Meta<DropdownProps> = {
-  title: "Components/Input/Dropdown",
+  title: "Shared Components/Dropdown",
   component: Dropdown,
   parameters: {
     layout: "centered",

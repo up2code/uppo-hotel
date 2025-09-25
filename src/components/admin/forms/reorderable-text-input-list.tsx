@@ -2,8 +2,8 @@ import { GripVertical } from "lucide-react";
 import { Reorder } from "motion/react";
 import React from "react";
 import { Control, useFieldArray } from "react-hook-form";
-import { TextInput } from "./text-input";
 import { nanoid } from "nanoid";
+import { TextInput } from "@/components/input/text-input";
 
 interface ReorderableTextInputListProps {
   name: string;

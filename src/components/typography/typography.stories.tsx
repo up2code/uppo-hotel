@@ -3,7 +3,7 @@ import { Typography, TypographyProps } from "./typography";
 
 // More on how to set up stories at: https://storybook.js.org/docs/writing-stories#default-export
 const meta: Meta<TypographyProps> = {
-  title: "Components/Typography",
+  title: "Shared Components/Typography",
   component: Typography,
   parameters: {
     layout: "centered",

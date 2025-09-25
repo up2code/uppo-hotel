@@ -3,7 +3,7 @@ import { Button } from "./button";
 
 // More on how to set up stories at: https://storybook.js.org/docs/writing-stories#default-export
 const meta: Meta<typeof Button> = {
-  title: "Components/Shadcn/Buttons",
+  title: "Shared Components/Buttons",
   component: Button,
   parameters: {
     layout: "centered",
