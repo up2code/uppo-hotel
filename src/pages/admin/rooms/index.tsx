@@ -1,10 +1,10 @@
 import { AdminLayout } from "@/components/admin/layouts/admin-layout";
 import React from "react";
 
-export default function Rooms() {
+export default function Page() {
   return (
     <AdminLayout>
-      <div>Room</div>
+      <div>List rooms</div>
     </AdminLayout>
   );
 }

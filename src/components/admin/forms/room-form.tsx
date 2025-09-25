@@ -30,6 +30,57 @@ const PromotionPriceInput = ({ label, ...props }: TextInputProps) => {
   );
 };
 
+interface CreateRoomHeaderProps {
+  onCancel: () => void;
+  onCreate: () => void;
+}
+
+const CreateRoomHeader = ({ onCancel, onCreate }: CreateRoomHeaderProps) => {
+  return (
+    <AdminHeader>
+      <div>Create New Room</div>
+      <div className="mr-4">
+        <button
+          type="button"
+          className="bg-blue-500 text-white p-2 rounded hover:opacity-75 hover:cursor-pointer"
+          onClick={onCancel}
+        >
+          Cancel
+        </button>
+        <button
+          type="submit"
+          className="bg-blue-500 text-white p-2 rounded hover:opacity-75 hover:cursor-pointer"
+          onClick={onCreate}
+        >
+          Create
+        </button>
+      </div>
+    </AdminHeader>
+  );
+};
+
+interface UpdateRoomHeaderProps {
+  title: string;
+  onSubmit: () => void;
+}
+
+const UpdateRoomHeader = ({ title, onSubmit }: UpdateRoomHeaderProps) => {
+  return (
+    <AdminHeader>
+      <div>{title}</div>
+      <div className="mr-4">
+        <button
+          type="submit"
+          className="bg-blue-500 text-white p-2 rounded hover:opacity-75 hover:cursor-pointer"
+          onClick={onSubmit}
+        >
+          Update
+        </button>
+      </div>
+    </AdminHeader>
+  );
+};
+
 export interface RoomFormProps {
   mode: "create" | "edit";
   room?: Room;
@@ -38,6 +89,7 @@ export interface RoomFormProps {
 }
 
 export const RoomForm = ({ mode, room, loading, onSubmit }: RoomFormProps) => {
+  console.log("RoomForm room:", room);
   // Hook form
   const { handleSubmit, register, control } = useForm<RoomFormData>({
     defaultValues: {
@@ -58,26 +110,22 @@ export const RoomForm = ({ mode, room, loading, onSubmit }: RoomFormProps) => {
     onSubmit(transformedData);
   };
 
-  const submittingText = mode === "edit" ? "Updating..." : "Creating...";
-  const submitText = mode === "edit" ? "Update Room" : "Create Room";
-
   return (
     <form
       onSubmit={handleSubmit(parseFormData)}
       className="min-h-screen bg-gray-100 pb-8"
     >
-      <AdminHeader>
-        <div>{mode === "edit" ? "Edit" : "Create"} Room</div>
-        <div className="mr-4">
-          <button
-            type="submit"
-            disabled={loading}
-            className="bg-blue-500 text-white p-2 rounded hover:opacity-75 hover:cursor-pointer"
-          >
-            {loading ? submittingText : submitText}
-          </button>
-        </div>
-      </AdminHeader>
+      {mode === "edit" ? (
+        <UpdateRoomHeader
+          title={room?.name || "Edit Room"}
+          onSubmit={handleSubmit(parseFormData)}
+        />
+      ) : (
+        <CreateRoomHeader
+          onCancel={() => {}}
+          onCreate={handleSubmit(parseFormData)}
+        />
+      )}
       <div className="p-4 space-y-4 bg-white rounded-lg shadow m-8">
         <h2 className="text-2xl font-bold mb-4">
           {mode === "edit" ? "Edit" : "Create"} Room

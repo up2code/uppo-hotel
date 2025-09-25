@@ -1,6 +1,6 @@
 interface Room {
-  id: string;
-  name: string;
+  id?: string;
+  name?: string;
   roomSize?: string;
   bedType?: string;
   guests?: number;
