@@ -2,6 +2,7 @@ import { Plus, X } from "lucide-react";
 import Image from "next/image";
 
 export interface ImageInputProps {
+  label?: string;
   value?: string;
 }
 

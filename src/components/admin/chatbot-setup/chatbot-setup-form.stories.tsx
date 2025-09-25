@@ -4,7 +4,7 @@ import { ChatbotSetupForm, ChatbotSetupFormProps } from "./chatbot-setup-form";
 
 // More on how to set up stories at: https://storybook.js.org/docs/writing-stories#default-export
 const meta: Meta<ChatbotSetupFormProps> = {
-  title: "Admin/Chatbot/Setup Form",
+  title: "Admin/Chatbot/ChatbotSetupForm",
   component: ChatbotSetupForm,
   parameters: {
     layout: "fullscreen",

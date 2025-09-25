@@ -1,11 +1,11 @@
 import type { Meta, StoryObj } from "@storybook/nextjs";
-import { RoomForm, RoomFormProps } from "./room-form";
+import { RoomTypeForm, RoomTypeFormProps } from "./room-type-form";
 import { fn } from "storybook/test";
 
 // More on how to set up stories at: https://storybook.js.org/docs/writing-stories#default-export
-const meta: Meta<RoomFormProps> = {
-  title: "Admin/Rooms/Room Form",
-  component: RoomForm,
+const meta: Meta<RoomTypeFormProps> = {
+  title: "Admin/Room Types/RoomTypeForm",
+  component: RoomTypeForm,
   parameters: {
     layout: "fullscreen",
   },
@@ -13,10 +13,10 @@ const meta: Meta<RoomFormProps> = {
   args: {
     onSubmit: fn(),
   },
-} satisfies Meta<typeof RoomForm>;
+} satisfies Meta<typeof RoomTypeForm>;
 
 export default meta;
-type Story = StoryObj<typeof RoomForm>;
+type Story = StoryObj<typeof RoomTypeForm>;
 
 export const Create: Story = {
   args: {

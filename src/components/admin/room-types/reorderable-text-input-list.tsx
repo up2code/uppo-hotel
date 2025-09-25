@@ -3,7 +3,7 @@ import { Reorder } from "motion/react";
 import React from "react";
 import { Control, useFieldArray } from "react-hook-form";
 import { nanoid } from "nanoid";
-import { TextInput } from "@/components/input/text-input";
+import { TextInput } from "@/components/shared/text-input";
 
 interface ReorderableTextInputListProps {
   name: string;

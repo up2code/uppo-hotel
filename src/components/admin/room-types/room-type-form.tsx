@@ -2,14 +2,14 @@ import { nanoid } from "nanoid";
 import { useForm } from "react-hook-form";
 import { AdminHeader } from "../layouts/admin-header";
 import Stack from "../layouts/stack";
-import { ImageInput } from "./image-input";
-import { Divider } from "../ui/divider";
-import { Textarea } from "./text-area";
+import { Divider } from "../../shared/divider";
 import { ReorderableTextInputList } from "./reorderable-text-input-list";
-import { TextInput, TextInputProps } from "@/components/input/text-input";
-import { Button } from "@/components/ui/button";
+import { Button } from "@/components/shared/button";
+import { TextInput, TextInputProps } from "@/components/shared/text-input";
+import { Textarea } from "@/components/shared/text-area";
+import { ImageInput } from "@/components/shared/image-input";
 
-interface RoomFormData extends Omit<Room, "amenities"> {
+interface RoomTypeFormData extends Omit<Room, "amenities"> {
   amenities: Record<string, string>[];
 }
 
@@ -70,16 +70,21 @@ const UpdateRoomHeader = ({ title, onSubmit }: UpdateRoomHeaderProps) => {
   );
 };
 
-export interface RoomFormProps {
+export interface RoomTypeFormProps {
   mode: "create" | "edit";
   room?: Room;
   loading: boolean;
   onSubmit: (data: Room) => void;
 }
 
-export const RoomForm = ({ mode, room, loading, onSubmit }: RoomFormProps) => {
+export const RoomTypeForm = ({
+  mode,
+  room,
+  loading,
+  onSubmit,
+}: RoomTypeFormProps) => {
   // Hook form
-  const { handleSubmit, register, control } = useForm<RoomFormData>({
+  const { handleSubmit, register, control } = useForm<RoomTypeFormData>({
     defaultValues: {
       ...room,
       amenities:
@@ -88,7 +93,7 @@ export const RoomForm = ({ mode, room, loading, onSubmit }: RoomFormProps) => {
     },
   });
 
-  const parseFormData = (data: RoomFormData) => {
+  const parseFormData = (data: RoomTypeFormData) => {
     // Transform amenities from array of objects to array of strings
     const transformedData: Room = {
       ...data,
