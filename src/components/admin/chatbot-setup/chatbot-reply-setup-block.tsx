@@ -9,12 +9,14 @@ import {
   useArrayInput,
 } from "@/providers/array-input-provider";
 import React from "react";
+import { cn } from "@/lib/utils";
 
 export interface ChatbotReplySetupBlockProps {
   readOnly?: boolean;
   disabled?: boolean;
   setup: ChatbotReplySetup;
   onClickEdit?: (id: string) => void;
+  onCancel?: () => void;
   onDelete?: () => void;
   onSave?: () => void;
 }
@@ -56,8 +58,10 @@ const ReplyOptionsList = () => {
 export const ChatbotReplySetupBlock = ({
   setup,
   readOnly,
+  disabled,
   onDelete,
   onSave,
+  onCancel,
   onClickEdit,
 }: ChatbotReplySetupBlockProps) => {
   const {
@@ -80,7 +84,12 @@ export const ChatbotReplySetupBlock = ({
   };
 
   return (
-    <div className="flex flex-col gap-4 p-4 bg-[#F6F7FD] rounded-md min-w-[600px]">
+    <div
+      className={cn(
+        `flex flex-col gap-4 p-4 bg-[#F6F7FD] rounded-md min-w-[600px]`,
+        disabled && "opacity-50 pointer-events-none"
+      )}
+    >
       <div className="flex flex-row gap-4">
         <div className="flex flex-1 flex-col gap-4">
           <Row>
@@ -148,8 +157,12 @@ export const ChatbotReplySetupBlock = ({
         </div>
       </div>
       <Row hidden={readOnly} className="justify-end gap-2">
-        <Button variant="default">Save</Button>
-        <Button variant="ghost">Cancel</Button>
+        <Button variant="default" onClick={onSave}>
+          Save
+        </Button>
+        <Button variant="ghost" onClick={onCancel}>
+          Cancel
+        </Button>
       </Row>
     </div>
   );

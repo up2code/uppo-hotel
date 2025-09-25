@@ -66,8 +66,11 @@ export const ChatbotReplySetupList = () => {
               <ChatbotReplySetupBlock
                 setup={setup}
                 readOnly={!editingSetupId || editingSetupId !== setup.id}
+                disabled={!!editingSetupId && editingSetupId !== setup.id}
                 onClickEdit={() => onEditId(setup.id)}
                 onDelete={() => remove(index)}
+                onSave={() => setEditingSetupId(null)}
+                onCancel={() => setEditingSetupId(null)}
               />
             </Reorder.Item>
           ))}

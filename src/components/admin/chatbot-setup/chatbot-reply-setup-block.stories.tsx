@@ -18,6 +18,7 @@ const meta: Meta<ChatbotReplySetupBlockProps> = {
     onDelete: fn(),
     onClickEdit: fn(),
     onSave: fn(),
+    onCancel: fn(),
   },
 } satisfies Meta<typeof ChatbotReplySetupBlock>;
 
@@ -73,6 +74,7 @@ export const Disabled: Story = {
     setup: {
       id: nanoid(),
     },
+    readOnly: true,
     disabled: true,
   },
 };
