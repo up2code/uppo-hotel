@@ -43,7 +43,7 @@ ChatbotSetupFormProps) => {
 
         <div className="flex flex-col gap-4 mt-4">
           <ArrayInputProvider values={chatbotReplySetups}>
-            <ChatbotReplySetupList setups={chatbotReplySetups} />
+            <ChatbotReplySetupList />
           </ArrayInputProvider>
         </div>
       </Column>
