@@ -1,15 +1,15 @@
 import { nanoid } from "nanoid";
 import { useForm } from "react-hook-form";
-import { AdminHeader } from "../layouts/admin-header";
-import Stack from "../layouts/stack";
-import { Divider } from "../../shared/divider";
+import { Divider } from "../../../components/shared/divider";
 import { ReorderableTextInputList } from "./reorderable-text-input-list";
 import { Button } from "@/components/shared/button";
 import { TextInput, TextInputProps } from "@/components/shared/text-input";
 import { Textarea } from "@/components/shared/text-area";
 import { ImageInput } from "@/components/shared/image-input";
+import { AdminHeader } from "@/components/layouts/admin-header";
+import { Row } from "@/components/layouts/row";
 
-interface RoomTypeFormData extends Omit<Room, "amenities"> {
+interface RoomTypeFormData extends Omit<RoomType, "amenities"> {
   amenities: Record<string, string>[];
 }
 
@@ -72,9 +72,9 @@ const UpdateRoomHeader = ({ title, onSubmit }: UpdateRoomHeaderProps) => {
 
 export interface RoomTypeFormProps {
   mode: "create" | "edit";
-  room?: Room;
+  room?: RoomType;
   loading: boolean;
-  onSubmit: (data: Room) => void;
+  onSubmit: (data: RoomType) => void;
 }
 
 export const RoomTypeForm = ({
@@ -95,7 +95,7 @@ export const RoomTypeForm = ({
 
   const parseFormData = (data: RoomTypeFormData) => {
     // Transform amenities from array of objects to array of strings
-    const transformedData: Room = {
+    const transformedData: RoomType = {
       ...data,
       amenities: data.amenities?.map((item) => item.value) || [],
     };
@@ -126,23 +126,23 @@ export const RoomTypeForm = ({
 
         <TextInput label="Room Type *" {...register("name")} />
 
-        <Stack direction="row">
+        <Row>
           <TextInput label="Room size(sqm)*" {...register("roomSize")} />
           <TextInput label="Bed type" {...register("bedType")} />
-        </Stack>
+        </Row>
 
-        <Stack direction="row">
+        <Row>
           <TextInput type="number" label="Guest(s)*" {...register("guests")} />
           <div className="flex flex-1" />
-        </Stack>
+        </Row>
 
-        <Stack direction="row">
+        <Row>
           <TextInput label="Price per Night(THB)*" {...register("price")} />
           <PromotionPriceInput
             label="Promotion Price"
             {...register("promotionPrice")}
           />
-        </Stack>
+        </Row>
 
         <Textarea label="Room Description *" {...register("description")} />
 

@@ -2,14 +2,14 @@ import { TextInput } from "@/components/shared/text-input";
 import { GripVertical, Pencil, Trash } from "lucide-react";
 import { Button } from "@/components/shared/button";
 import { Dropdown } from "@/components/shared/dropdown";
-import { Row } from "../layouts/row";
-import { Column } from "../layouts/column";
 import {
   ArrayInputProvider,
   useArrayInput,
 } from "@/providers/array-input-provider";
 import React from "react";
 import { cn } from "@/lib/utils";
+import { Column } from "@/components/layouts/column";
+import { Row } from "@/components/layouts/row";
 
 export interface ChatbotReplySetupBlockProps {
   readOnly?: boolean;

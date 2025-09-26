@@ -1,32 +1,32 @@
-import { RoomForm } from "@/components/admin/forms/room-form";
-import { AdminLayout } from "@/components/admin/layouts/admin-layout";
+import { AdminLayout } from "@/components/layouts/admin-layout";
+import { RoomTypeForm } from "@/features/room-types/components/room-type-form";
 import {
-  CreateRoomApiProvider,
-  useCreateRoomApi,
-} from "@/providers/create-room-api-provider";
+  CreateRoomTypeProvider,
+  useCreateRoomType,
+} from "@/features/room-types/providers/create-room-type-provider";
 import React from "react";
 
 export default function Page() {
   return (
     <AdminLayout>
-      <CreateRoomApiProvider>
+      <CreateRoomTypeProvider>
         <CreatePage />
-      </CreateRoomApiProvider>
+      </CreateRoomTypeProvider>
     </AdminLayout>
   );
 }
 
 function CreatePage() {
-  const { loading, mutate } = useCreateRoomApi();
+  const { loading, requestCreate } = useCreateRoomType();
 
   return (
-    <RoomForm
+    <RoomTypeForm
       mode="create"
       room={{
         amenities: [""],
       }}
       loading={loading}
-      onSubmit={mutate}
+      onSubmit={requestCreate}
     />
   );
 }

@@ -4,7 +4,7 @@ import { ArrayInputProvider } from "@/providers/array-input-provider";
 import { nanoid } from "nanoid";
 
 const meta = {
-  title: "Admin/Chatbot/ChatbotReplySetupList",
+  title: "Features/Chatbot/ChatbotReplySetupList",
   component: ChatbotReplySetupList,
   parameters: {
     layout: "centered",

@@ -4,7 +4,7 @@ import { ShoppingCart } from "lucide-react";
 
 // More on how to set up stories at: https://storybook.js.org/docs/writing-stories#default-export
 const meta: Meta<SummaryCardProps> = {
-  title: "Admin/Dashboard/SummaryCard",
+  title: "Features/Dashboard/SummaryCard",
   component: SummaryCard,
   parameters: {
     layout: "centered",
@@ -15,12 +15,22 @@ const meta: Meta<SummaryCardProps> = {
 export default meta;
 type Story = StoryObj<typeof SummaryCard>;
 
-export const Default: Story = {
+export const Up: Story = {
   args: {
     label: "Total Revenue",
     value: "$12,345",
     icon: <ShoppingCart />,
     trend: "up",
+    trendValue: 5,
+  },
+};
+
+export const Down: Story = {
+  args: {
+    label: "Total Revenue",
+    value: "$12,345",
+    icon: <ShoppingCart />,
+    trend: "down",
     trendValue: 5,
   },
 };

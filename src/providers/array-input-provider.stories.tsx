@@ -1,6 +1,5 @@
 import type { Meta, StoryObj } from "@storybook/nextjs";
 import { ArrayInputProvider, useArrayInput } from "./array-input-provider";
-import { GripVertical } from "lucide-react";
 
 interface Item {
   id: number;

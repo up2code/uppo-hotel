@@ -1,10 +1,10 @@
-import { AnimatePresence, Reorder } from "motion/react";
+import { Reorder } from "motion/react";
 import { ChatbotReplySetupBlock } from "./chatbot-reply-setup-block";
 import React, { createContext, use } from "react";
 import { useArrayInput } from "@/providers/array-input-provider";
-import { Column } from "../layouts/column";
 import { Button } from "@/components/shared/button";
 import { nanoid } from "nanoid";
+import { Column } from "@/components/layouts/column";
 
 export interface ChatbotReplySetupListProps {
   setups: ChatbotReplySetup[];

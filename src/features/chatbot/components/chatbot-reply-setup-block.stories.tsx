@@ -1,14 +1,14 @@
 import type { Meta, StoryObj } from "@storybook/nextjs";
 import { fn } from "storybook/test";
+import { nanoid } from "nanoid";
 import {
   ChatbotReplySetupBlock,
   ChatbotReplySetupBlockProps,
 } from "./chatbot-reply-setup-block";
-import { nanoid } from "nanoid";
 
 // More on how to set up stories at: https://storybook.js.org/docs/writing-stories#default-export
 const meta: Meta<ChatbotReplySetupBlockProps> = {
-  title: "Admin/Chatbot/ChatbotReplySetupBlock",
+  title: "Features/Chatbot/ChatbotReplySetupBlock",
   component: ChatbotReplySetupBlock,
   parameters: {
     layout: "centered",

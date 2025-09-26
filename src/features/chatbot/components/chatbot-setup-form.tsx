@@ -1,11 +1,10 @@
 import { Paper } from "@/components/shared/paper";
 import { Textarea } from "@/components/shared/text-area";
 import React from "react";
-import { ChatbotReplySetupBlock } from "./chatbot-reply-setup-block";
 import { ChatbotReplySetupList } from "./chatbot-reply-setup-list";
-import { Column } from "../layouts/column";
 import { nanoid } from "nanoid";
 import { ArrayInputProvider } from "@/providers/array-input-provider";
+import { Column } from "@/components/layouts/column";
 
 export interface ChatbotSetupFormProps {
   // Define any props if needed

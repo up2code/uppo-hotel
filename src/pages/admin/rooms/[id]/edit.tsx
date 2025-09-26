@@ -1,8 +1,11 @@
-import { AdminLayout } from "@/components/admin/layouts/admin-layout";
+import { AdminLayout } from "@/components/layouts/admin-layout";
+import { RoomTypeForm } from "@/features/room-types/components/room-type-form";
+import {
+  EditRoomTypeProvider,
+  useEditRoomType,
+} from "@/features/room-types/providers/edit-room-type-provider";
 import { useRouter } from "next/router";
 import React from "react";
-import { RoomApiProvider, useRoomApi } from "@/providers/room-api-provider";
-import { RoomForm } from "@/components/admin/forms/room-form";
 
 export default function Page() {
   const {
@@ -11,18 +14,18 @@ export default function Page() {
 
   return (
     <AdminLayout>
-      <RoomApiProvider id={id as string}>
+      <EditRoomTypeProvider id={id as string}>
         <EditRoomPage />
-      </RoomApiProvider>
+      </EditRoomTypeProvider>
     </AdminLayout>
   );
 }
 
 function EditRoomPage() {
-  const { data, loading, requestUpdate } = useRoomApi();
+  const { data, loading, requestUpdate } = useEditRoomType();
 
   return (
-    <RoomForm
+    <RoomTypeForm
       mode="edit"
       room={data || undefined}
       loading={requestUpdate.loading}
