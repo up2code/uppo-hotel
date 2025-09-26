@@ -1,3 +1,4 @@
+import { cn } from "@/lib/utils";
 import React from "react";
 
 export interface PaperProps {
@@ -7,7 +8,7 @@ export interface PaperProps {
 
 export const Paper = ({ children, className }: PaperProps) => {
   return (
-    <div className={`bg-white p-4 rounded-md shadow-md ${className}`}>
+    <div className={cn(`bg-white p-4 rounded-md shadow-md`, className)}>
       {children}
     </div>
   );

@@ -28,7 +28,7 @@ export const Dropdown = ({
   className,
 }: DropdownProps) => {
   return (
-    <div className="flex flex-col flex-1 relative">
+    <div className="flex flex-col relative">
       {label && (
         <label className={cn(`mb-1`, disabled ? "text-gray-400" : "")}>
           {label}
@@ -42,7 +42,7 @@ export const Dropdown = ({
       >
         <SelectTrigger
           className={cn(
-            "w-[200px] text-left",
+            "text-left",
             disabled && "bg-gray-300 cursor-not-allowed",
             className
           )}
