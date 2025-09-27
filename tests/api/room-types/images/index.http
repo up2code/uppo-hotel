@@ -1,0 +1,16 @@
+### Upload a new image for a room type
+POST http://localhost:3000/api/room-types/images
+Content-Type: multipart/form-data
+
+--boundary
+Content-Disposition: form-data; name="roomTypeId"
+
+1
+--boundary
+Content-Disposition: form-data; name="image"; filename="room.jpg"
+Content-Type: image/jpeg
+
+< ./room.jpg
+--boundary--
+
+###
