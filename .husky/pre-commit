@@ -1,3 +1,5 @@
-pnpm test
-prettier $(git diff --cached --name-only --diff-filter=ACMR | sed 's| |\\ |g') --write --ignore-unknown
+#!/bin/sh
+set -e
+pnpm lint-staged
+pnpm test --changed
 git update-index --again
