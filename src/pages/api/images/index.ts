@@ -1,5 +1,5 @@
 // Next.js API route support: https://nextjs.org/docs/api-routes/introduction
-import type { NextApiRequest, NextApiResponse } from 'next';
+import type { NextApiRequest, NextApiResponse } from "next";
 
 interface UploadResponse {
   success: boolean;
@@ -12,10 +12,10 @@ export default async function handler(
   req: NextApiRequest,
   res: NextApiResponse<UploadResponse>,
 ) {
-  if (req.method !== 'POST') {
+  if (req.method !== "POST") {
     return res.status(405).json({
       success: false,
-      message: 'Method not allowed',
+      message: "Method not allowed",
     });
   }
 
@@ -27,7 +27,7 @@ export default async function handler(
 
   res.status(200).json({
     success: true,
-    message: 'Image uploaded successfully',
+    message: "Image uploaded successfully",
     filename,
     url: `https://picsum.photos/200`,
   });

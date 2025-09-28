@@ -1,4 +1,4 @@
-import React from 'react';
+import React from "react";
 
 export const useQuery = <T>(key: string, fetcher: () => Promise<T>) => {
   const [data, setData] = React.useState<T | null>(null);

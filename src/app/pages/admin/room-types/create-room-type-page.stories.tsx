@@ -1,14 +1,14 @@
-import type { Meta, StoryObj } from '@storybook/nextjs-vite';
-import { CreateRoomTypePage } from './create-room-type-page';
+import type { Meta, StoryObj } from "@storybook/nextjs-vite";
+import { CreateRoomTypePage } from "./create-room-type-page";
 
 // More on how to set up stories at: https://storybook.js.org/docs/writing-stories#default-export
 const meta = {
-  title: 'Pages/room-types/create',
+  title: "Pages/room-types/create",
   component: CreateRoomTypePage,
   parameters: {
-    layout: 'centered',
+    layout: "centered",
   },
-  tags: ['autodocs'],
+  tags: ["autodocs"],
 } satisfies Meta<typeof CreateRoomTypePage>;
 
 export default meta;

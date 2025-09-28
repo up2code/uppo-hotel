@@ -1,6 +1,6 @@
-import React from 'react';
-import { cn } from '@/lib/utils';
-import { Info } from 'lucide-react';
+import React from "react";
+import { cn } from "@/lib/utils";
+import { Info } from "lucide-react";
 
 export interface TextInputProps
   extends React.InputHTMLAttributes<HTMLInputElement> {
@@ -17,7 +17,7 @@ export const TextInput = ({ label, error, name, ...props }: TextInputProps) => {
       {label && (
         <label
           htmlFor={inputId}
-          className={cn(`mb-1`, props.disabled ? 'text-gray-400' : '')}
+          className={cn(`mb-1`, props.disabled ? "text-gray-400" : "")}
         >
           {label}
         </label>
@@ -25,12 +25,12 @@ export const TextInput = ({ label, error, name, ...props }: TextInputProps) => {
       <input
         id={inputId}
         name={name}
-        type={props.type || 'text'}
-        aria-invalid={error ? 'true' : 'false'}
+        type={props.type || "text"}
+        aria-invalid={error ? "true" : "false"}
         aria-describedby={errorId}
         className={cn(
           `p-2 rounded bg-white border-1 focus:border-primary focus:outline-none`,
-          error ? 'border-red-500' : '',
+          error ? "border-red-500" : "",
         )}
         {...props}
       />

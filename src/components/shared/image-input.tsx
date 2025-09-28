@@ -22,11 +22,8 @@ export const ImageInput = ({ value, name, onChange }: ImageInputProps) => {
       if (imageUrl) {
         onChange?.(imageUrl);
         setImageUrl(imageUrl);
-        console.log("Uploaded image URL:", imageUrl);
       }
-    } catch (err) {
-      console.error("Upload failed:", err);
-    }
+    } catch {}
   };
 
   const handleFileChange = async (event: ChangeEvent<HTMLInputElement>) => {
@@ -100,7 +97,7 @@ export const ImageInput = ({ value, name, onChange }: ImageInputProps) => {
           </div>
         ) : imageUrl ? (
           <>
-            <img
+            <Image
               src={imageUrl}
               width={480}
               height={480}

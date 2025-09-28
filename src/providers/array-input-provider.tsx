@@ -1,5 +1,4 @@
-import React from 'react';
-import { createContext, use } from 'react';
+import React from "react";
 
 export interface ArrayInputContextProps<T> {
   add: (item: T) => void;
@@ -8,17 +7,17 @@ export interface ArrayInputContextProps<T> {
   items: T[];
 }
 
-const ArrayInputContext = createContext<
+const ArrayInputContext = React.createContext<
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   ArrayInputContextProps<any> | undefined
 >(undefined);
 
 export function useArrayInput<T>() {
-  const context = use(ArrayInputContext) as
+  const context = React.use(ArrayInputContext) as
     | ArrayInputContextProps<T>
     | undefined;
   if (!context) {
-    throw new Error('useArrayInput must be used within an ArrayInputProvider');
+    throw new Error("useArrayInput must be used within an ArrayInputProvider");
   }
   return context;
 }

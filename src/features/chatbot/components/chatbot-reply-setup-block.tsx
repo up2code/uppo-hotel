@@ -1,16 +1,16 @@
-import { TextInput } from '@/components/shared/text-input';
-import { GripVertical, Pencil, Trash } from 'lucide-react';
-import { Button } from '@/components/shared/button';
-import { Dropdown } from '@/components/shared/dropdown';
+import { TextInput } from "@/components/shared/text-input";
+import { GripVertical, Pencil, Trash } from "lucide-react";
+import { Button } from "@/components/shared/button";
+import { Dropdown } from "@/components/shared/dropdown";
 import {
   ArrayInputProvider,
   useArrayInput,
-} from '@/providers/array-input-provider';
-import React from 'react';
-import { cn } from '@/lib/utils';
-import { Column } from '@/components/layouts/column';
-import { Row } from '@/components/layouts/row';
-import { ChatbotReplyOption, ChatbotReplySetup } from '@/types';
+} from "@/providers/array-input-provider";
+import React from "react";
+import { cn } from "@/lib/utils";
+import { Column } from "@/components/layouts/column";
+import { Row } from "@/components/layouts/row";
+import { ChatbotReplyOption, ChatbotReplySetup } from "@/types";
 
 export interface ChatbotReplySetupBlockProps {
   readOnly?: boolean;
@@ -26,7 +26,7 @@ const ReplyOptionsList = () => {
   const { items, add } = useArrayInput<ChatbotReplyOption>();
 
   const handleAddOption = () => {
-    add({ name: '', detail: '' });
+    add({ name: "", detail: "" });
   };
 
   return (
@@ -88,7 +88,7 @@ export const ChatbotReplySetupBlock = ({
     <div
       className={cn(
         `flex flex-col gap-4 p-4 bg-[#F6F7FD] rounded-md min-w-[600px]`,
-        disabled && 'opacity-50 pointer-events-none',
+        disabled && "opacity-50 pointer-events-none",
       )}
     >
       <div className="flex flex-row gap-4">
@@ -97,46 +97,46 @@ export const ChatbotReplySetupBlock = ({
             <TextInput
               label="Topic"
               placeholder="Room Types"
-              defaultValue={topic || ''}
+              defaultValue={topic || ""}
             />
             <Dropdown
               defaultValue={replyFormat}
               label="Reply format"
               options={[
-                { label: 'Room type', value: 'room-type' },
-                { label: 'Message', value: 'message' },
-                { label: 'Option with details', value: 'options' },
+                { label: "Room type", value: "room-type" },
+                { label: "Message", value: "message" },
+                { label: "Option with details", value: "options" },
               ]}
             />
           </Row>
 
-          <Column hidden={replyFormat !== 'room-type'}>
+          <Column hidden={replyFormat !== "room-type"}>
             <TextInput
               label="Reply title"
               placeholder="Reply title"
-              defaultValue={replyTitle || ''}
+              defaultValue={replyTitle || ""}
             />
             <TextInput
               label="Room type"
               placeholder="Room type"
-              defaultValue={roomType || ''}
+              defaultValue={roomType || ""}
             />
             <TextInput
               label="Button name type"
               placeholder="Button name type"
-              defaultValue={buttonNameType || ''}
+              defaultValue={buttonNameType || ""}
             />
           </Column>
 
-          <Column hidden={replyFormat !== 'message'}>
+          <Column hidden={replyFormat !== "message"}>
             <TextInput
               label="Reply message"
               placeholder="Reply message"
-              defaultValue={replyMessage || ''}
+              defaultValue={replyMessage || ""}
             />
           </Column>
 
-          <Column hidden={replyFormat !== 'options'}>
+          <Column hidden={replyFormat !== "options"}>
             <ArrayInputProvider values={options || []}>
               <ReplyOptionsList />
             </ArrayInputProvider>

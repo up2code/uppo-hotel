@@ -1,14 +1,14 @@
-import type { Meta, StoryObj } from '@storybook/nextjs-vite';
-import { Button } from './button';
+import type { Meta, StoryObj } from "@storybook/nextjs-vite";
+import { Button } from "./button";
 
 // More on how to set up stories at: https://storybook.js.org/docs/writing-stories#default-export
 const meta: Meta<typeof Button> = {
-  title: 'Shared Components/Buttons',
+  title: "Shared Components/Buttons",
   component: Button,
   parameters: {
-    layout: 'centered',
+    layout: "centered",
   },
-  tags: ['autodocs'],
+  tags: ["autodocs"],
 } satisfies Meta<typeof Button>;
 
 export default meta;
@@ -17,64 +17,64 @@ type Story = StoryObj<typeof Button>;
 // Default variant stories
 export const Default: Story = {
   args: {
-    children: 'Button',
+    children: "Button",
   },
 };
 
 export const Destructive: Story = {
   args: {
-    variant: 'destructive',
-    children: 'Delete',
+    variant: "destructive",
+    children: "Delete",
   },
 };
 
 export const Outline: Story = {
   args: {
-    variant: 'outline',
-    children: 'Outline',
+    variant: "outline",
+    children: "Outline",
   },
 };
 
 export const Secondary: Story = {
   args: {
-    variant: 'secondary',
-    children: 'Secondary',
+    variant: "secondary",
+    children: "Secondary",
   },
 };
 
 export const Ghost: Story = {
   args: {
-    variant: 'ghost',
-    children: 'Ghost',
+    variant: "ghost",
+    children: "Ghost",
   },
 };
 
 export const Link: Story = {
   args: {
-    variant: 'link',
-    children: 'Link',
+    variant: "link",
+    children: "Link",
   },
 };
 
 // Size variants
 export const Small: Story = {
   args: {
-    size: 'sm',
-    children: 'Small Button',
+    size: "sm",
+    children: "Small Button",
   },
 };
 
 export const Large: Story = {
   args: {
-    size: 'lg',
-    children: 'Large Button',
+    size: "lg",
+    children: "Large Button",
   },
 };
 
 export const Icon: Story = {
   args: {
-    size: 'icon',
-    children: '🏠',
+    size: "icon",
+    children: "🏠",
   },
 };
 
@@ -82,15 +82,15 @@ export const Icon: Story = {
 export const Disabled: Story = {
   args: {
     disabled: true,
-    children: 'Disabled',
+    children: "Disabled",
   },
 };
 
 export const DisabledDestructive: Story = {
   args: {
-    variant: 'destructive',
+    variant: "destructive",
     disabled: true,
-    children: 'Disabled Delete',
+    children: "Disabled Delete",
   },
 };
 
@@ -120,7 +120,7 @@ export const WithIcon: Story = {
 
 export const WithIconOutline: Story = {
   args: {
-    variant: 'outline',
+    variant: "outline",
     children: (
       <>
         <svg

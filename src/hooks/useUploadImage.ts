@@ -1,4 +1,4 @@
-import { useState, useCallback } from 'react';
+import { useState, useCallback } from "react";
 
 interface UploadState {
   loading: boolean;
@@ -30,15 +30,15 @@ export const useUploadImage = (): UseUploadImageReturn => {
   }, []);
 
   const uploadImage = useCallback(
-    async (file: File, endpoint = '/api/images'): Promise<string | null> => {
+    async (file: File, endpoint = "/api/images"): Promise<string | null> => {
       if (!file) {
-        setState((prev) => ({ ...prev, error: 'No file provided' }));
+        setState((prev) => ({ ...prev, error: "No file provided" }));
         return null;
       }
 
       // Validate file type
-      if (!file.type.startsWith('image/')) {
-        setState((prev) => ({ ...prev, error: 'File must be an image' }));
+      if (!file.type.startsWith("image/")) {
+        setState((prev) => ({ ...prev, error: "File must be an image" }));
         return null;
       }
 
@@ -51,19 +51,19 @@ export const useUploadImage = (): UseUploadImageReturn => {
 
       try {
         const formData = new FormData();
-        formData.append('image', file);
+        formData.append("image", file);
 
         const xhr = new XMLHttpRequest();
 
         return new Promise((resolve, reject) => {
-          xhr.upload.addEventListener('progress', (event) => {
+          xhr.upload.addEventListener("progress", (event) => {
             if (event.lengthComputable) {
               const progress = Math.round((event.loaded * 100) / event.total);
               setState((prev) => ({ ...prev, progress }));
             }
           });
 
-          xhr.addEventListener('load', () => {
+          xhr.addEventListener("load", () => {
             if (xhr.status >= 200 && xhr.status < 300) {
               try {
                 const response = JSON.parse(xhr.responseText);
@@ -78,7 +78,7 @@ export const useUploadImage = (): UseUploadImageReturn => {
 
                 resolve(imageUrl);
               } catch {
-                const errorMessage = 'Invalid response format';
+                const errorMessage = "Invalid response format";
                 setState((prev) => ({
                   ...prev,
                   loading: false,
@@ -97,8 +97,8 @@ export const useUploadImage = (): UseUploadImageReturn => {
             }
           });
 
-          xhr.addEventListener('error', () => {
-            const errorMessage = 'Network error during upload';
+          xhr.addEventListener("error", () => {
+            const errorMessage = "Network error during upload";
             setState((prev) => ({
               ...prev,
               loading: false,
@@ -107,12 +107,12 @@ export const useUploadImage = (): UseUploadImageReturn => {
             reject(new Error(errorMessage));
           });
 
-          xhr.open('POST', endpoint);
+          xhr.open("POST", endpoint);
           xhr.send(formData);
         });
       } catch (error) {
         const errorMessage =
-          error instanceof Error ? error.message : 'Upload failed';
+          error instanceof Error ? error.message : "Upload failed";
         setState((prev) => ({
           ...prev,
           loading: false,

@@ -1,33 +1,33 @@
-import { Dropdown } from '@/components/shared/dropdown';
-import { Paper } from '@/components/shared/paper';
+import { Dropdown } from "@/components/shared/dropdown";
+import { Paper } from "@/components/shared/paper";
 import {
   ChartConfig,
   ChartContainer,
   ChartTooltip,
   ChartTooltipContent,
-} from '@/components/ui/chart';
-import { Pie, PieChart } from 'recharts';
+} from "@/components/ui/chart";
+import { Pie, PieChart } from "recharts";
 
 const chartData = [
-  { key: 'occupied', value: 21, fill: 'var(--chart-1)' },
-  { key: 'booked', value: 14, fill: 'var(--chart-2)' },
-  { key: 'available', value: 8, fill: 'var(--chart-3)' },
+  { key: "occupied", value: 21, fill: "var(--chart-1)" },
+  { key: "booked", value: 14, fill: "var(--chart-2)" },
+  { key: "available", value: 8, fill: "var(--chart-3)" },
 ];
 const chartData2 = [
-  { key: 'occupied', value: 21, fill: '#ED9775' },
-  { key: 'booked', value: 14, fill: '#7E8C83' },
-  { key: 'available', value: 8, fill: '#DADBE6' },
+  { key: "occupied", value: 21, fill: "#ED9775" },
+  { key: "booked", value: 14, fill: "#7E8C83" },
+  { key: "available", value: 8, fill: "#DADBE6" },
 ];
 
 const chartConfig = {
   occupied: {
-    label: 'Occupied',
+    label: "Occupied",
   },
   booked: {
-    label: 'Booked',
+    label: "Booked",
   },
   available: {
-    label: 'Available',
+    label: "Available",
   },
 } satisfies ChartConfig;
 
@@ -64,9 +64,9 @@ const Header = ({ className }: { className?: string }) => {
       <h2 className="text-md font-semibold">Room Availability</h2>
       <Dropdown
         options={[
-          { label: 'This Month', value: 'this_month' },
-          { label: 'This Week', value: 'this_week' },
-          { label: 'Today', value: 'today' },
+          { label: "This Month", value: "this_month" },
+          { label: "This Week", value: "this_week" },
+          { label: "Today", value: "today" },
         ]}
         defaultValue="this_month"
       />

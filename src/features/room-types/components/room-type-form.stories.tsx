@@ -56,13 +56,13 @@ export const PlayValidForm: Story = {
   play: async ({ args, canvas, userEvent, step }) => {
     await step("Fill in the form", async () => {
       const nameInput = (await canvas.findByLabelText(
-        "Room Type"
+        "Room Type",
       )) as HTMLInputElement;
 
       await userEvent.type(nameInput, "Deluxe Room");
 
       const roomSizeInput = (await canvas.findByLabelText(
-        "Room Size(sqm)"
+        "Room Size(sqm)",
       )) as HTMLInputElement;
 
       await userEvent.type(roomSizeInput, "32");

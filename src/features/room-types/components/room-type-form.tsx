@@ -58,7 +58,7 @@ export const RoomTypeForm = ({
       onSubmit={handleSubmit(parseFormData)}
       className={cn(
         `min-h-screen bg-gray-100 pb-8`,
-        loading && "opacity-50 cursor-not-allowed"
+        loading && "opacity-50 cursor-not-allowed",
       )}
     >
       <div className="p-4 space-y-4 bg-white rounded-lg shadow m-8">

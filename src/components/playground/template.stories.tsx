@@ -1,14 +1,14 @@
-import type { Meta, StoryObj } from '@storybook/nextjs-vite';
-import { Template, TemplateProps } from './template';
+import type { Meta, StoryObj } from "@storybook/nextjs-vite";
+import { Template, TemplateProps } from "./template";
 
 // More on how to set up stories at: https://storybook.js.org/docs/writing-stories#default-export
 const meta: Meta<TemplateProps> = {
-  title: 'Playground/Template',
+  title: "Playground/Template",
   component: Template,
   parameters: {
-    layout: 'centered',
+    layout: "centered",
   },
-  tags: ['autodocs'],
+  tags: ["autodocs"],
 } satisfies Meta<typeof Template>;
 
 export default meta;

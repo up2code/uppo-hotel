@@ -1,5 +1,5 @@
-import type { Meta, StoryObj } from '@storybook/nextjs-vite';
-import { ArrayInputProvider, useArrayInput } from './array-input-provider';
+import type { Meta, StoryObj } from "@storybook/nextjs-vite";
+import { ArrayInputProvider, useArrayInput } from "./array-input-provider";
 
 interface Item {
   id: number;
@@ -45,12 +45,12 @@ const SampleComponent = () => {
 
 // More on how to set up stories at: https://storybook.js.org/docs/writing-stories#default-export
 const meta: Meta<typeof ArrayInputProvider> = {
-  title: 'Providers/ArrayInputProvider',
+  title: "Providers/ArrayInputProvider",
   component: ArrayInputProvider,
   parameters: {
-    layout: 'centered',
+    layout: "centered",
   },
-  tags: ['autodocs'],
+  tags: ["autodocs"],
 } satisfies Meta<typeof ArrayInputProvider>;
 
 export default meta;
@@ -59,8 +59,8 @@ type Story = StoryObj<typeof ArrayInputProvider>;
 export const Default: Story = {
   args: {
     values: [
-      { id: 1, name: 'Item 1' },
-      { id: 2, name: 'Item 2' },
+      { id: 1, name: "Item 1" },
+      { id: 2, name: "Item 2" },
     ],
     children: <SampleComponent />,
   },

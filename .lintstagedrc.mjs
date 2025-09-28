@@ -8,7 +8,8 @@ const buildEslintCommand = (filenames) => {
 };
 
 const config = {
-  "*.{ts,tsx}": [buildEslintCommand],
+  "*.{ts,tsx}": [buildEslintCommand, () => "tsc --noEmit"],
+  "*.{json,md,yml,yaml}": ["prettier --write"],
 };
 
 export default config;

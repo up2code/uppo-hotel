@@ -1,7 +1,7 @@
-import { useMutate } from '@/hooks/useMutate';
-import { createContext, use } from 'react';
-import { CreateRoomResponse, createRoomType } from '../api/create-room-type';
-import { RoomType } from '../types/room-type';
+import { useMutate } from "@/hooks/useMutate";
+import { createContext, use } from "react";
+import { CreateRoomResponse, createRoomType } from "../api/create-room-type";
+import { RoomType } from "../types/room-type";
 
 interface CreateRoomTypeContextProps {
   requestCreate: (data: RoomType) => Promise<void>;
@@ -17,7 +17,7 @@ export function useCreateRoomType() {
   const context = use(CreateRoomTypeApiContext);
   if (!context) {
     throw new Error(
-      'useCreateRoomType must be used within a CreateRoomTypeProvider',
+      "useCreateRoomType must be used within a CreateRoomTypeProvider",
     );
   }
   return context;
