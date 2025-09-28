@@ -1,11 +1,11 @@
-import { Reorder } from "motion/react";
-import { ChatbotReplySetupBlock } from "./chatbot-reply-setup-block";
-import React, { createContext, use } from "react";
-import { useArrayInput } from "@/providers/array-input-provider";
-import { Button } from "@/components/shared/button";
-import { nanoid } from "nanoid";
-import { Column } from "@/components/layouts/column";
-import { ChatbotReplySetup } from "@/types";
+import { Reorder } from 'motion/react';
+import { ChatbotReplySetupBlock } from './chatbot-reply-setup-block';
+import React, { createContext, use } from 'react';
+import { useArrayInput } from '@/providers/array-input-provider';
+import { Button } from '@/components/shared/button';
+import { nanoid } from 'nanoid';
+import { Column } from '@/components/layouts/column';
+import { ChatbotReplySetup } from '@/types';
 
 export interface ChatbotReplySetupListProps {
   setups: ChatbotReplySetup[];
@@ -24,7 +24,7 @@ export function useChatbotReplySetupList() {
   const context = use(ChatbotReplySetupListContext);
   if (!context) {
     throw new Error(
-      "useChatbotReplySetupList must be used within a ChatbotReplySetupListProvider"
+      'useChatbotReplySetupList must be used within a ChatbotReplySetupListProvider',
     );
   }
   return context;
@@ -33,7 +33,7 @@ export function useChatbotReplySetupList() {
 export const ChatbotReplySetupList = () => {
   const { items, add, remove, reset } = useArrayInput<ChatbotReplySetup>();
   const [editingSetupId, setEditingSetupId] = React.useState<string | null>(
-    null
+    null,
   );
 
   const onDragEnd = (newFields: ChatbotReplySetup[]) => {

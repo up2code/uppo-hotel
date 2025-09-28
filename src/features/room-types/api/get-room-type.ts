@@ -1,4 +1,4 @@
-import { RoomType } from "../types/room-type";
+import { RoomType } from '../types/room-type';
 
 export const getRoomType = async (id: string) => {
   // Simulate fetching room data by ID
@@ -7,7 +7,7 @@ export const getRoomType = async (id: string) => {
   // Simulated room data
   const room: RoomType = {
     id,
-    name: "Sample Room ja",
+    name: 'Sample Room ja',
     // amenities: ["Free Wi-Fi", "Air Conditioning", "Flat-screen TV", "Mini Bar"],
   };
 

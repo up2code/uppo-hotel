@@ -4,9 +4,9 @@ import {
   SelectItem,
   SelectTrigger,
   SelectValue,
-} from "@/components/shared/select";
-import { cn } from "@/lib/utils";
-import React from "react";
+} from '@/components/shared/select';
+import { cn } from '@/lib/utils';
+import React from 'react';
 
 export interface DropdownProps {
   label?: string;
@@ -30,7 +30,7 @@ export const Dropdown = ({
   return (
     <div className="flex flex-col relative">
       {label && (
-        <label className={cn(`mb-1`, disabled ? "text-gray-400" : "")}>
+        <label className={cn(`mb-1`, disabled ? 'text-gray-400' : '')}>
           {label}
         </label>
       )}
@@ -42,9 +42,9 @@ export const Dropdown = ({
       >
         <SelectTrigger
           className={cn(
-            "text-left",
-            disabled && "bg-gray-300 cursor-not-allowed",
-            className
+            'text-left',
+            disabled && 'bg-gray-300 cursor-not-allowed',
+            className,
           )}
         >
           <SelectValue placeholder={label} />

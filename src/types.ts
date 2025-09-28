@@ -6,7 +6,7 @@ export interface ChatbotReplyOption {
 export interface ChatbotReplySetup {
   id: string;
   topic?: string;
-  replyFormat?: "room-type" | "message" | "options" | undefined;
+  replyFormat?: 'room-type' | 'message' | 'options' | undefined;
   replyTitle?: string;
   replyMessage?: string;
   roomType?: string;

@@ -1,19 +1,19 @@
-import React from "react";
-import { Toaster } from "sonner";
+import React from 'react';
+import { Toaster } from 'sonner';
 
 interface AppProviderProps {
   appName?: string;
 }
 
 const AppProviderContext = React.createContext<AppProviderProps | undefined>(
-  undefined
+  undefined,
 );
 
 export const AppProvider = ({ children }: { children: React.ReactNode }) => {
   return (
     <AppProviderContext
       value={{
-        appName: "Uppo Hotel",
+        appName: 'Uppo Hotel',
       }}
     >
       <>

@@ -1,7 +1,7 @@
-import { useUploadImage } from "@/hooks/useUploadImage";
-import { Plus, X, Upload, Loader2 } from "lucide-react";
-import Image from "next/image";
-import { useRef, useState, DragEvent, ChangeEvent } from "react";
+import { useUploadImage } from '@/hooks/useUploadImage';
+import { Plus, X, Upload, Loader2 } from 'lucide-react';
+import Image from 'next/image';
+import { useRef, useState, DragEvent, ChangeEvent } from 'react';
 
 export interface ImageInputProps {
   label?: string;
@@ -22,10 +22,10 @@ export const ImageInput = ({ value, name, onChange }: ImageInputProps) => {
       if (imageUrl) {
         onChange?.(imageUrl);
         setImageUrl(imageUrl);
-        console.log("Uploaded image URL:", imageUrl);
+        console.log('Uploaded image URL:', imageUrl);
       }
     } catch (err) {
-      console.error("Upload failed:", err);
+      console.error('Upload failed:', err);
     }
   };
 
@@ -65,7 +65,7 @@ export const ImageInput = ({ value, name, onChange }: ImageInputProps) => {
     const files = event.dataTransfer.files;
     const file = files[0];
 
-    if (file && file.type.startsWith("image/")) {
+    if (file && file.type.startsWith('image/')) {
       await handleFileUpload(file);
     }
   };
@@ -75,11 +75,11 @@ export const ImageInput = ({ value, name, onChange }: ImageInputProps) => {
       <div
         className={`relative flex flex-col items-center justify-center gap-2 size-48 rounded text-primary cursor-pointer transition-all duration-200 ${
           isDragOver
-            ? "bg-blue-100 border-2 border-dashed border-blue-400"
+            ? 'bg-blue-100 border-2 border-dashed border-blue-400'
             : value
-            ? "bg-gray-100"
-            : "bg-gray-200 hover:bg-gray-300"
-        } ${loading ? "pointer-events-none" : ""}`}
+              ? 'bg-gray-100'
+              : 'bg-gray-200 hover:bg-gray-300'
+        } ${loading ? 'pointer-events-none' : ''}`}
         onClick={handleClick}
         onDragOver={handleDragOver}
         onDragLeave={handleDragLeave}
@@ -142,7 +142,7 @@ export const ImageInput = ({ value, name, onChange }: ImageInputProps) => {
 
       {error && <p className="text-red-500 text-sm mt-1">{error}</p>}
 
-      <input type="hidden" value={imageUrl || ""} name={name} />
+      <input type="hidden" value={imageUrl || ''} name={name} />
     </div>
   );
 };

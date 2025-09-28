@@ -1,4 +1,4 @@
-import { toast } from "sonner";
+import { toast } from 'sonner';
 
 export const useNotify = () => {
   const notify = (message: string) => {

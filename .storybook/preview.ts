@@ -1,6 +1,6 @@
-import type { Preview } from "@storybook/nextjs-vite";
-import { initialize, mswLoader } from "msw-storybook-addon";
-import "../src/styles/globals.css";
+import type { Preview } from '@storybook/nextjs-vite';
+import { initialize, mswLoader } from 'msw-storybook-addon';
+import '../src/styles/globals.css';
 
 /*
  * Initializes MSW

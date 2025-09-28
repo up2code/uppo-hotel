@@ -1,4 +1,4 @@
-import React from "react";
+import React from 'react';
 
 export interface TemplateProps {
   string?: string;
@@ -8,10 +8,10 @@ export interface TemplateProps {
 }
 
 export const Template = ({
-  string = "Hello, World!",
+  string = 'Hello, World!',
   number = 42,
   boolean = true,
-  array = ["Item 1", "Item 2", "Item 3"],
+  array = ['Item 1', 'Item 2', 'Item 3'],
 }: TemplateProps) => {
   return (
     <div className="p-4 border rounded-md shadow-sm w-64">
@@ -23,7 +23,7 @@ export const Template = ({
         <strong>Number:</strong> {number}
       </p>
       <p className="mb-1">
-        <strong>Boolean:</strong> {boolean ? "True" : "False"}
+        <strong>Boolean:</strong> {boolean ? 'True' : 'False'}
       </p>
       <div>
         <strong>Array:</strong>

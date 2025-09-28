@@ -1,11 +1,11 @@
-import { Paper } from "@/components/shared/paper";
-import { Textarea } from "@/components/shared/text-area";
-import React from "react";
-import { ChatbotReplySetupList } from "./chatbot-reply-setup-list";
-import { nanoid } from "nanoid";
-import { ArrayInputProvider } from "@/providers/array-input-provider";
-import { Column } from "@/components/layouts/column";
-import { ChatbotReplySetup } from "@/types";
+import { Paper } from '@/components/shared/paper';
+import { Textarea } from '@/components/shared/text-area';
+import React from 'react';
+import { ChatbotReplySetupList } from './chatbot-reply-setup-list';
+import { nanoid } from 'nanoid';
+import { ArrayInputProvider } from '@/providers/array-input-provider';
+import { Column } from '@/components/layouts/column';
+import { ChatbotReplySetup } from '@/types';
 
 export interface ChatbotSetupFormProps {
   // Define any props if needed
@@ -15,8 +15,8 @@ export interface ChatbotSetupFormProps {
 }
 
 export const ChatbotSetupForm = ({
-  greetingMessage = "",
-  autoReplyMessage = "",
+  greetingMessage = '',
+  autoReplyMessage = '',
   chatbotReplySetups = [
     {
       id: nanoid(),

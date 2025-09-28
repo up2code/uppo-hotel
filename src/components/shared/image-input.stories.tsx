@@ -1,14 +1,14 @@
-import type { Meta, StoryObj } from "@storybook/nextjs-vite";
-import { ImageInput, ImageInputProps } from "./image-input";
-import { http, HttpResponse } from "msw";
+import type { Meta, StoryObj } from '@storybook/nextjs-vite';
+import { ImageInput, ImageInputProps } from './image-input';
+import { http, HttpResponse } from 'msw';
 // More on how to set up stories at: https://storybook.js.org/docs/writing-stories#default-export
 const meta: Meta<ImageInputProps> = {
-  title: "Shared Components/ImageInput",
+  title: 'Shared Components/ImageInput',
   component: ImageInput,
   parameters: {
-    layout: "centered",
+    layout: 'centered',
   },
-  tags: ["autodocs"],
+  tags: ['autodocs'],
 } satisfies Meta<typeof ImageInput>;
 
 export default meta;
@@ -20,10 +20,10 @@ export const Default: Story = {
   parameters: {
     msw: {
       handlers: [
-        http.post("/api/images", () => {
+        http.post('/api/images', () => {
           return HttpResponse.json({
             success: true,
-            message: "Image uploaded successfully",
+            message: 'Image uploaded successfully',
             filename: `image-${Date.now()}`,
             url: `https://picsum.photos/200?${Date.now()}`,
           });
@@ -35,6 +35,6 @@ export const Default: Story = {
 
 export const HaveValue: Story = {
   args: {
-    value: "https://picsum.photos/200",
+    value: 'https://picsum.photos/200',
   },
 };

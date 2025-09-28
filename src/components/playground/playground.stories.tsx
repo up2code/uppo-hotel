@@ -1,11 +1,11 @@
-import type { Meta, StoryObj } from "@storybook/nextjs-vite";
-import { Playground, PlaygroundProps } from "./playground";
+import type { Meta, StoryObj } from '@storybook/nextjs-vite';
+import { Playground, PlaygroundProps } from './playground';
 
 // More on how to set up stories at: https://storybook.js.org/docs/writing-stories#default-export
 const meta: Meta<PlaygroundProps> = {
-  title: "Playground/Playground",
+  title: 'Playground/Playground',
   component: Playground,
-  tags: ["autodocs"],
+  tags: ['autodocs'],
 } satisfies Meta<typeof Playground>;
 
 export default meta;

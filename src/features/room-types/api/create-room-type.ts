@@ -1,5 +1,5 @@
-import { useMutate } from "@/hooks/useMutate";
-import { RoomType } from "../types/room-type";
+import { useMutate } from '@/hooks/useMutate';
+import { RoomType } from '../types/room-type';
 
 export interface CreateRoomResponse {
   success: boolean;
@@ -10,7 +10,7 @@ export const useCreateRoomType = () => {
 };
 
 export const createRoomType = async (data: RoomType) => {
-  console.log("Creating room", data);
+  console.log('Creating room', data);
 
   // Simulate creating room
   await new Promise((resolve) => setTimeout(resolve, 2000));

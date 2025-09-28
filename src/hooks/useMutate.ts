@@ -1,4 +1,4 @@
-import React from "react";
+import React from 'react';
 
 export const useMutate = <T, U>(mutator: (data: T) => Promise<U>) => {
   const [data, setData] = React.useState<U | null>(null);

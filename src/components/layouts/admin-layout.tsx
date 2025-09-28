@@ -1,6 +1,6 @@
-import { useRouter } from "next/router";
-import SideBar from "../ui/side-bar";
-import { AdminHeader } from "./admin-header";
+import { useRouter } from 'next/router';
+import SideBar from '../ui/side-bar';
+import { AdminHeader } from './admin-header';
 
 const AdminLayout = ({ children }: { children: React.ReactNode }) => {
   const { isFallback } = useRouter();

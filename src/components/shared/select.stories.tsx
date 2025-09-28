@@ -1,4 +1,4 @@
-import type { Meta, StoryObj } from "@storybook/nextjs-vite";
+import type { Meta, StoryObj } from '@storybook/nextjs-vite';
 import {
   Select,
   SelectContent,
@@ -8,16 +8,16 @@ import {
   SelectGroup,
   SelectLabel,
   SelectSeparator,
-} from "./select";
+} from './select';
 
 // More on how to set up stories at: https://storybook.js.org/docs/writing-stories#default-export
 const meta: Meta<typeof Select> = {
-  title: "Shared Components/Select",
+  title: 'Shared Components/Select',
   component: Select,
   parameters: {
-    layout: "centered",
+    layout: 'centered',
   },
-  tags: ["autodocs"],
+  tags: ['autodocs'],
 } satisfies Meta<typeof Select>;
 
 export default meta;

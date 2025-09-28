@@ -1,9 +1,9 @@
-import { useMutate } from "@/hooks/useMutate";
-import { useQuery } from "@/hooks/useQuery";
-import { createContext, use } from "react";
-import { updateRoom, UpdateRoomResponse } from "../api/update-room-type";
-import { getRoomType } from "../api/get-room-type";
-import { RoomType } from "../types/room-type";
+import { useMutate } from '@/hooks/useMutate';
+import { useQuery } from '@/hooks/useQuery';
+import { createContext, use } from 'react';
+import { updateRoom, UpdateRoomResponse } from '../api/update-room-type';
+import { getRoomType } from '../api/get-room-type';
+import { RoomType } from '../types/room-type';
 
 interface EditRoomTypeContextProps {
   data: RoomType | null;
@@ -24,7 +24,7 @@ export function useEditRoomType() {
   const context = use(EditRoomTypeApiContext);
   if (!context) {
     throw new Error(
-      "useEditRoomType must be used within a EditRoomTypeProvider"
+      'useEditRoomType must be used within a EditRoomTypeProvider',
     );
   }
   return context;
@@ -38,11 +38,11 @@ export const EditRoomTypeProvider = ({
   id: string;
 }) => {
   const { data, loading, error } = useQuery<RoomType>(`room-${id}`, () =>
-    getRoomType(id)
+    getRoomType(id),
   );
 
   const requestUpdate = useMutate<RoomType, UpdateRoomResponse>((data) =>
-    updateRoom(id as string, data)
+    updateRoom(id as string, data),
   );
 
   return (

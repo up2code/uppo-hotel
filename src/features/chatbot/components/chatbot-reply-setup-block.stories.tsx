@@ -1,19 +1,19 @@
-import type { Meta, StoryObj } from "@storybook/nextjs-vite";
-import { fn } from "storybook/test";
-import { nanoid } from "nanoid";
+import type { Meta, StoryObj } from '@storybook/nextjs-vite';
+import { fn } from 'storybook/test';
+import { nanoid } from 'nanoid';
 import {
   ChatbotReplySetupBlock,
   ChatbotReplySetupBlockProps,
-} from "./chatbot-reply-setup-block";
+} from './chatbot-reply-setup-block';
 
 // More on how to set up stories at: https://storybook.js.org/docs/writing-stories#default-export
 const meta: Meta<ChatbotReplySetupBlockProps> = {
-  title: "Features/Chatbot/ChatbotReplySetupBlock",
+  title: 'Features/Chatbot/ChatbotReplySetupBlock',
   component: ChatbotReplySetupBlock,
   parameters: {
-    layout: "centered",
+    layout: 'centered',
   },
-  tags: ["autodocs"],
+  tags: ['autodocs'],
   args: {
     onDelete: fn(),
     onClickEdit: fn(),
@@ -46,7 +46,7 @@ export const ReplyWithRoomType: Story = {
   args: {
     setup: {
       id: nanoid(),
-      replyFormat: "room-type",
+      replyFormat: 'room-type',
     },
   },
 };
@@ -55,7 +55,7 @@ export const ReplyWithMessage: Story = {
   args: {
     setup: {
       id: nanoid(),
-      replyFormat: "message",
+      replyFormat: 'message',
     },
   },
 };
@@ -64,7 +64,7 @@ export const ReplyWithOptions: Story = {
   args: {
     setup: {
       id: nanoid(),
-      replyFormat: "options",
+      replyFormat: 'options',
     },
   },
 };

@@ -1,5 +1,5 @@
-import React from "react";
-import { createContext, use } from "react";
+import React from 'react';
+import { createContext, use } from 'react';
 
 export interface ArrayInputContextProps<T> {
   add: (item: T) => void;
@@ -18,7 +18,7 @@ export function useArrayInput<T>() {
     | ArrayInputContextProps<T>
     | undefined;
   if (!context) {
-    throw new Error("useArrayInput must be used within an ArrayInputProvider");
+    throw new Error('useArrayInput must be used within an ArrayInputProvider');
   }
   return context;
 }

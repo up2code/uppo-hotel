@@ -1,16 +1,16 @@
-import type { StoryObj } from "@storybook/nextjs-vite";
-import { ChatbotReplySetupList } from "./chatbot-reply-setup-list";
-import { ArrayInputProvider } from "@/providers/array-input-provider";
-import { nanoid } from "nanoid";
-import { ChatbotReplySetup } from "@/types";
+import type { StoryObj } from '@storybook/nextjs-vite';
+import { ChatbotReplySetupList } from './chatbot-reply-setup-list';
+import { ArrayInputProvider } from '@/providers/array-input-provider';
+import { nanoid } from 'nanoid';
+import { ChatbotReplySetup } from '@/types';
 
 const meta = {
-  title: "Features/Chatbot/ChatbotReplySetupList",
+  title: 'Features/Chatbot/ChatbotReplySetupList',
   component: ChatbotReplySetupList,
   parameters: {
-    layout: "centered",
+    layout: 'centered',
   },
-  tags: ["autodocs"],
+  tags: ['autodocs'],
   args: {
     setups: [] as ChatbotReplySetup[],
   },
@@ -39,31 +39,31 @@ export const AllFormat: Story = {
   render: () => {
     const allTypes: ChatbotReplySetup[] = [
       {
-        id: "1",
+        id: '1',
       },
       {
-        id: "2",
-        topic: "Check-in",
-        replyFormat: "room-type",
-        replyTitle: "Choose room",
-        roomType: "Deluxe Room",
-        buttonNameType: "Deluxe",
+        id: '2',
+        topic: 'Check-in',
+        replyFormat: 'room-type',
+        replyTitle: 'Choose room',
+        roomType: 'Deluxe Room',
+        buttonNameType: 'Deluxe',
       },
       {
-        id: "3",
-        topic: "Contact",
-        replyFormat: "message",
-        replyMessage: "You can reach us at",
+        id: '3',
+        topic: 'Contact',
+        replyFormat: 'message',
+        replyMessage: 'You can reach us at',
       },
       {
-        id: "4",
-        topic: "Book a room",
-        replyFormat: "options",
-        replyTitle: "Select an option",
+        id: '4',
+        topic: 'Book a room',
+        replyFormat: 'options',
+        replyTitle: 'Select an option',
         options: [
-          { name: "Single Room", detail: "A cozy room for one" },
-          { name: "Double Room", detail: "Perfect for couples" },
-          { name: "Suite", detail: "Luxury and comfort" },
+          { name: 'Single Room', detail: 'A cozy room for one' },
+          { name: 'Double Room', detail: 'Perfect for couples' },
+          { name: 'Suite', detail: 'Luxury and comfort' },
         ],
       },
     ];
