@@ -5,6 +5,7 @@ import { useArrayInput } from "@/providers/array-input-provider";
 import { Button } from "@/components/shared/button";
 import { nanoid } from "nanoid";
 import { Column } from "@/components/layouts/column";
+import { ChatbotReplySetup } from "@/types";
 
 export interface ChatbotReplySetupListProps {
   setups: ChatbotReplySetup[];

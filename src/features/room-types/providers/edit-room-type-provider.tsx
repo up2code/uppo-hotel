@@ -3,6 +3,7 @@ import { useQuery } from "@/hooks/useQuery";
 import { createContext, use } from "react";
 import { updateRoom, UpdateRoomResponse } from "../api/update-room-type";
 import { getRoomType } from "../api/get-room-type";
+import { RoomType } from "../types/room-type";
 
 interface EditRoomTypeContextProps {
   data: RoomType | null;

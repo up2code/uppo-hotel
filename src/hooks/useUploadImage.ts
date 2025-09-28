@@ -77,7 +77,7 @@ export const useUploadImage = (): UseUploadImageReturn => {
                 }));
 
                 resolve(imageUrl);
-              } catch (error) {
+              } catch {
                 const errorMessage = "Invalid response format";
                 setState((prev) => ({
                   ...prev,

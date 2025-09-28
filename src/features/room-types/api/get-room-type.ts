@@ -1,3 +1,5 @@
+import { RoomType } from "../types/room-type";
+
 export const getRoomType = async (id: string) => {
   // Simulate fetching room data by ID
   await new Promise((resolve) => setTimeout(resolve, 2000));
@@ -6,7 +8,7 @@ export const getRoomType = async (id: string) => {
   const room: RoomType = {
     id,
     name: "Sample Room ja",
-    amenities: ["Free Wi-Fi", "Air Conditioning", "Flat-screen TV", "Mini Bar"],
+    // amenities: ["Free Wi-Fi", "Air Conditioning", "Flat-screen TV", "Mini Bar"],
   };
 
   return room;

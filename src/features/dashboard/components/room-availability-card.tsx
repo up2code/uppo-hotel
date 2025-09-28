@@ -3,16 +3,10 @@ import { Paper } from "@/components/shared/paper";
 import {
   ChartConfig,
   ChartContainer,
-  ChartLegend,
-  ChartLegendContent,
   ChartTooltip,
   ChartTooltipContent,
 } from "@/components/ui/chart";
-import { Bar, BarChart, Legend, Pie, PieChart } from "recharts";
-
-export interface RoomAvailabilityCardProps {
-  // Define any props if needed
-}
+import { Pie, PieChart } from "recharts";
 
 const chartData = [
   { key: "occupied", value: 21, fill: "var(--chart-1)" },

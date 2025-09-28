@@ -1,3 +1,5 @@
+import { RoomType } from "../types/room-type";
+
 export interface UpdateRoomResponse {
   success: boolean;
 }

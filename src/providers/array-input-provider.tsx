@@ -9,6 +9,7 @@ export interface ArrayInputContextProps<T> {
 }
 
 const ArrayInputContext = createContext<
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   ArrayInputContextProps<any> | undefined
 >(undefined);
 
@@ -47,12 +48,15 @@ export const ArrayInputProvider = <T,>({
 
   return (
     <ArrayInputContext.Provider
-      value={{
-        add,
-        remove,
-        reset,
-        items,
-      }}
+      value={
+        {
+          add,
+          remove,
+          reset,
+          items,
+          // eslint-disable-next-line @typescript-eslint/no-explicit-any
+        } as ArrayInputContextProps<any>
+      }
     >
       {children}
     </ArrayInputContext.Provider>

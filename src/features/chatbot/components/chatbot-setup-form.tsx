@@ -5,6 +5,7 @@ import { ChatbotReplySetupList } from "./chatbot-reply-setup-list";
 import { nanoid } from "nanoid";
 import { ArrayInputProvider } from "@/providers/array-input-provider";
 import { Column } from "@/components/layouts/column";
+import { ChatbotReplySetup } from "@/types";
 
 export interface ChatbotSetupFormProps {
   // Define any props if needed

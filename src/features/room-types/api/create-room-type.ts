@@ -1,4 +1,5 @@
 import { useMutate } from "@/hooks/useMutate";
+import { RoomType } from "../types/room-type";
 
 export interface CreateRoomResponse {
   success: boolean;

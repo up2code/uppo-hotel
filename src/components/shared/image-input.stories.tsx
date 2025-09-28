@@ -1,7 +1,6 @@
 import type { Meta, StoryObj } from "@storybook/nextjs-vite";
 import { ImageInput, ImageInputProps } from "./image-input";
-import { http, HttpResponse, delay } from "msw";
-import { file, nanoid } from "zod";
+import { http, HttpResponse } from "msw";
 // More on how to set up stories at: https://storybook.js.org/docs/writing-stories#default-export
 const meta: Meta<ImageInputProps> = {
   title: "Shared Components/ImageInput",

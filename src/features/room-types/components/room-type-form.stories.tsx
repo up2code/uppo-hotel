@@ -54,8 +54,6 @@ export const PlayValidForm: Story = {
     loading: false,
   },
   play: async ({ args, canvas, userEvent, step }) => {
-    await new Promise((resolve) => setTimeout(resolve, 1000));
-
     await step("Fill in the form", async () => {
       const nameInput = (await canvas.findByLabelText(
         "Room Type"
@@ -81,8 +79,6 @@ export const InvalidForm: Story = {
     loading: false,
   },
   play: async ({ canvas, userEvent, step }) => {
-    await new Promise((resolve) => setTimeout(resolve, 1000));
-
     await step("Click submit", async () => {
       const submitButton = canvas.getByRole("button");
       await userEvent.click(submitButton);
@@ -90,10 +86,8 @@ export const InvalidForm: Story = {
 
     await step("Verify error messages", async () => {
       const nameInputError = await canvas.findByTestId("name-error");
-      const titleInputError = await canvas.findByTestId("title-error");
 
       await expect(nameInputError).toHaveTextContent("Required");
-      await expect(titleInputError).toHaveTextContent("Required");
     });
   },
 };

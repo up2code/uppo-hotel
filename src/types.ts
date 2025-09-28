@@ -1,9 +1,9 @@
-interface ChatbotReplyOption {
+export interface ChatbotReplyOption {
   name?: string;
   detail?: string;
 }
 
-interface ChatbotReplySetup {
+export interface ChatbotReplySetup {
   id: string;
   topic?: string;
   replyFormat?: "room-type" | "message" | "options" | undefined;

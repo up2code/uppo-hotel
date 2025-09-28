@@ -1,24 +1,18 @@
-import { nanoid } from "nanoid";
 import { useForm } from "react-hook-form";
-import { Divider } from "../../../components/shared/divider";
-import { ReorderableTextInputList } from "./reorderable-text-input-list";
 import { TextInput, TextInputProps } from "@/components/shared/text-input";
-import { Textarea } from "@/components/shared/text-area";
-import { ImageInput } from "@/components/shared/image-input";
-import { Row } from "@/components/layouts/row";
 import { cn } from "@/lib/utils";
 import { Button } from "@/components/shared/button";
 import { z } from "zod";
 import { zodResolver } from "@hookform/resolvers/zod";
 import React from "react";
-import { on } from "events";
+import { RoomType } from "../types/room-type";
 
 const roomTypeFormDataSchema = z.object({
   name: z.string().min(1, { message: "Required" }),
 });
 
 interface RoomTypeFormData extends Omit<RoomType, "amenities"> {
-  amenities: Record<string, string>[];
+  amenities?: Record<string, string>[];
 }
 
 export interface RoomTypeFormProps {
@@ -47,24 +41,18 @@ export const RoomTypeForm = ({
     resolver: zodResolver(roomTypeFormDataSchema),
   });
 
-  const myHandleSubmit = (data) => {
-    console.log("Form data submitted:", data);
-    onSubmit(data);
-  };
-
   const parseFormData = async (data: RoomTypeFormData) => {
     // Transform amenities from array of objects to array of strings
     const transformedData: RoomType = {
       ...data,
-      amenities: data.amenities?.map((item) => item.value) || [],
     };
 
-    await onSubmit(transformedData);
+    onSubmit(transformedData);
   };
 
   return (
     <form
-      onSubmit={handleSubmit(myHandleSubmit)}
+      onSubmit={handleSubmit(parseFormData)}
       className={cn(
         `min-h-screen bg-gray-100 pb-8`,
         loading && "opacity-50 cursor-not-allowed"

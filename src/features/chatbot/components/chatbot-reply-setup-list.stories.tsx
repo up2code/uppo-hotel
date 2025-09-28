@@ -2,6 +2,7 @@ import type { StoryObj } from "@storybook/nextjs-vite";
 import { ChatbotReplySetupList } from "./chatbot-reply-setup-list";
 import { ArrayInputProvider } from "@/providers/array-input-provider";
 import { nanoid } from "nanoid";
+import { ChatbotReplySetup } from "@/types";
 
 const meta = {
   title: "Features/Chatbot/ChatbotReplySetupList",

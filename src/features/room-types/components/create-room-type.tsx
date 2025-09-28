@@ -2,6 +2,7 @@ import React from "react";
 import { RoomTypeForm } from "./room-type-form";
 import { useCreateRoomType } from "../api/create-room-type";
 import { useNotify } from "@/hooks/useNotify";
+import { RoomType } from "../types/room-type";
 
 export const CreateRoomType = () => {
   const notify = useNotify();
@@ -19,9 +20,11 @@ export const CreateRoomType = () => {
   return (
     <RoomTypeForm
       mode="create"
-      defaultValues={{
-        amenities: [""],
-      }}
+      defaultValues={
+        {
+          // amenities: [""],
+        }
+      }
       loading={loading}
       onSubmit={onCreate}
     />

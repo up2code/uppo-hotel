@@ -58,7 +58,6 @@ type Story = StoryObj<typeof ArrayInputProvider>;
 
 export const Default: Story = {
   args: {
-    name: "items",
     values: [
       { id: 1, name: "Item 1" },
       { id: 2, name: "Item 2" },

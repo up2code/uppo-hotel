@@ -1,6 +1,7 @@
 import { useMutate } from "@/hooks/useMutate";
 import { createContext, use } from "react";
 import { CreateRoomResponse, createRoomType } from "../api/create-room-type";
+import { RoomType } from "../types/room-type";
 
 interface CreateRoomTypeContextProps {
   requestCreate: (data: RoomType) => Promise<void>;

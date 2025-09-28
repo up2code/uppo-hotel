@@ -1,11 +1,8 @@
 import type { Meta, StoryObj } from "@storybook/nextjs-vite";
-import {
-  RoomAvailabilityCard,
-  RoomAvailabilityCardProps,
-} from "./room-availability-card";
+import { RoomAvailabilityCard } from "./room-availability-card";
 
 // More on how to set up stories at: https://storybook.js.org/docs/writing-stories#default-export
-const meta: Meta<RoomAvailabilityCardProps> = {
+const meta = {
   title: "Features/Dashboard/RoomAvailability",
   component: RoomAvailabilityCard,
   parameters: {

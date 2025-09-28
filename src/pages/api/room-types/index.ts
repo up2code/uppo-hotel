@@ -1,7 +1,6 @@
 import * as z from "zod";
 // Next.js API route support: https://nextjs.org/docs/api-routes/introduction
 import type { NextApiRequest, NextApiResponse } from "next";
-import { ZodIssue } from "zod/v3";
 import { $ZodIssue } from "zod/v4/core";
 
 interface CreateRoomTypeRequest {

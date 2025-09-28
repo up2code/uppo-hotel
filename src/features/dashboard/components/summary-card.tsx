@@ -11,7 +11,6 @@ export interface SummaryCardProps {
 export const SummaryCard: React.FC<SummaryCardProps> = ({
   label,
   value,
-  icon,
   trend,
   trendValue,
 }) => {
