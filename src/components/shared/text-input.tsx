@@ -8,7 +8,7 @@ export interface TextInputProps
   error?: string;
 }
 
-export const TextInput = ({ label, error, ...props }: TextInputProps) => {
+export const TextInput = ({ label, error, name, ...props }: TextInputProps) => {
   return (
     <div className="flex flex-col flex-1 relative">
       {label && (
@@ -30,7 +30,11 @@ export const TextInput = ({ label, error, ...props }: TextInputProps) => {
           className="absolute right-2 top-9 size-6"
         />
       )}
-      {error && <div className="text-red-500">{error?.toString()}</div>}
+      {error && (
+        <div data-testid={`${name}-error`} className="text-red-500">
+          {error?.toString()}
+        </div>
+      )}
     </div>
   );
 };
