@@ -1,9 +1,20 @@
 import React from "react";
 import { RoomTypeForm } from "./room-type-form";
 import { useCreateRoomType } from "../api/create-room-type";
+import { useNotify } from "@/hooks/useNotify";
 
 export const CreateRoomType = () => {
-  const { loading, mutate } = useCreateRoomType();
+  const notify = useNotify();
+  const { data: createdResponse, loading, mutate } = useCreateRoomType();
+
+  const onCreate = (data: RoomType) => {
+    console.log("Creating room type with data:", data);
+    mutate(data);
+  };
+
+  if (createdResponse) {
+    notify("Room type created successfully");
+  }
 
   return (
     <RoomTypeForm
@@ -12,7 +23,7 @@ export const CreateRoomType = () => {
         amenities: [""],
       }}
       loading={loading}
-      onSubmit={mutate}
+      onSubmit={onCreate}
     />
   );
 };

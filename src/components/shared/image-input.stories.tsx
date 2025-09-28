@@ -1,4 +1,4 @@
-import type { Meta, StoryObj } from "@storybook/nextjs";
+import type { Meta, StoryObj } from "@storybook/nextjs-vite";
 import { ImageInput, ImageInputProps } from "./image-input";
 import { http, HttpResponse, delay } from "msw";
 import { file, nanoid } from "zod";

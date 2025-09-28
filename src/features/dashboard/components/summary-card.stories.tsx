@@ -1,4 +1,4 @@
-import type { Meta, StoryObj } from "@storybook/nextjs";
+import type { Meta, StoryObj } from "@storybook/nextjs-vite";
 import { SummaryCard, SummaryCardProps } from "./summary-card";
 import { ShoppingCart } from "lucide-react";
 

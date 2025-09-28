@@ -10,10 +10,11 @@ import { cn } from "@/lib/utils";
 import { Button } from "@/components/shared/button";
 import { z } from "zod";
 import { zodResolver } from "@hookform/resolvers/zod";
+import React from "react";
+import { on } from "events";
 
 const roomTypeFormDataSchema = z.object({
   name: z.string().min(1, { message: "Required" }),
-  title: z.string().min(1, { message: "Required" }),
 });
 
 interface RoomTypeFormData extends Omit<RoomType, "amenities"> {
@@ -24,7 +25,8 @@ export interface RoomTypeFormProps {
   mode: "create" | "edit";
   defaultValues: RoomType;
   loading: boolean;
-  onSubmit: (data: RoomType) => Promise<void>;
+  onChange?: (data: RoomType) => void;
+  onSubmit: (data: RoomType) => void;
 }
 
 export const RoomTypeForm = ({
@@ -45,6 +47,11 @@ export const RoomTypeForm = ({
     resolver: zodResolver(roomTypeFormDataSchema),
   });
 
+  const myHandleSubmit = (data) => {
+    console.log("Form data submitted:", data);
+    onSubmit(data);
+  };
+
   const parseFormData = async (data: RoomTypeFormData) => {
     // Transform amenities from array of objects to array of strings
     const transformedData: RoomType = {
@@ -57,7 +64,7 @@ export const RoomTypeForm = ({
 
   return (
     <form
-      onSubmit={handleSubmit(onSubmit)}
+      onSubmit={handleSubmit(myHandleSubmit)}
       className={cn(
         `min-h-screen bg-gray-100 pb-8`,
         loading && "opacity-50 cursor-not-allowed"
@@ -73,17 +80,10 @@ export const RoomTypeForm = ({
         </Button>
 
         <TextInput
-          label="Room Type *"
+          label="Room Type"
           disabled={loading}
           error={errors.name?.message as TextInputProps["error"]}
           {...register("name")}
-        />
-
-        <TextInput
-          label="Title *"
-          disabled={loading}
-          error={errors.title?.message as TextInputProps["error"]}
-          {...register("title")}
         />
       </div>
     </form>

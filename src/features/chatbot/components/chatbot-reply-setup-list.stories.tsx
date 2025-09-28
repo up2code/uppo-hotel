@@ -1,4 +1,4 @@
-import type { StoryObj } from "@storybook/nextjs";
+import type { StoryObj } from "@storybook/nextjs-vite";
 import { ChatbotReplySetupList } from "./chatbot-reply-setup-list";
 import { ArrayInputProvider } from "@/providers/array-input-provider";
 import { nanoid } from "nanoid";

@@ -1,4 +1,4 @@
-import type { Meta, StoryObj } from "@storybook/nextjs";
+import type { Meta, StoryObj } from "@storybook/nextjs-vite";
 import { Dropdown, DropdownProps } from "./dropdown";
 
 // More on how to set up stories at: https://storybook.js.org/docs/writing-stories#default-export
