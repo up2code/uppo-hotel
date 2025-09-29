@@ -41,8 +41,8 @@ export const EditRoomTypeProvider = ({
     getRoomType(id),
   );
 
-  const requestUpdate = useMutate<RoomType, UpdateRoomResponse>((data) =>
-    updateRoom(id as string, data),
+  const requestUpdate = useMutate<RoomType, UpdateRoomResponse>(() =>
+    updateRoom(),
   );
 
   return (
