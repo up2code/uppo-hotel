@@ -6,7 +6,7 @@ const meta = {
   title: "Pages/room-types/create",
   component: CreateRoomTypePage,
   parameters: {
-    layout: "centered",
+    layout: "fullscreen",
   },
   tags: ["autodocs"],
 } satisfies Meta<typeof CreateRoomTypePage>;
