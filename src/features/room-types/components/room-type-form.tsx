@@ -13,6 +13,8 @@ import { RoomTypeFormData } from "../types/room-type";
 import { FormCheckbox } from "@/components/forms/form-checkbox";
 import { useForm } from "@/components/forms/form-provider/use-form";
 import { LoaderCircle } from "lucide-react";
+import { Divider } from "@/components/shared/divider";
+import { ImageInput } from "@/components/shared/image-input";
 
 const roomTypeFormDataSchema = z.object({
   name: z.string().min(1, { message: "Required" }),
@@ -80,8 +82,10 @@ export const RoomTypeForm = ({
       disabled={loading}
     >
       <AdminHeader>
-        <div>{mode === "create" ? "Create Room Type" : "Edit Room Type"}</div>
-        <div className="mr-4 flex gap-2">
+        <div className="hidden md:block md:flex-1">
+          {mode === "create" ? "Create Room Type" : "Edit Room Type"}
+        </div>
+        <div className="flex justify-between w-full md:w-auto gap-2">
           {mode === "create" && (
             <Button
               type="button"
@@ -112,7 +116,7 @@ export const RoomTypeForm = ({
         </div>
       </AdminHeader>
 
-      <div className="p-8 bg-gray-100 h-screen">
+      <div className="bg-gray-100 h-screen w-full md:p-8">
         <Paper>
           <Column>
             <FormTextInput label="Room Type" name="name" />
@@ -153,7 +157,7 @@ export const RoomTypeForm = ({
                   ]}
                 />
               </div>
-              <div className="flex-1"></div>
+              <div className="flex-1 hidden md:flex"></div>
             </Row>
             <Row>
               <div className="flex-1">
@@ -163,10 +167,14 @@ export const RoomTypeForm = ({
                   type="number"
                 />
               </div>
-              <div className="flex flex-1 items-end">
-                <PromotionPriceInput />
-              </div>
+              <div className="flex-1 items-end hidden md:flex"></div>
             </Row>
+
+            <Divider />
+
+            <h3>Room Image</h3>
+
+            <ImageInput name="images" label="Room Images" />
           </Column>
         </Paper>
       </div>

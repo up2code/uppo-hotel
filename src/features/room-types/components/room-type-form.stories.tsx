@@ -2,6 +2,7 @@ import type { Meta, StoryObj } from "@storybook/nextjs-vite";
 import { RoomTypeForm, RoomTypeFormProps } from "./room-type-form";
 import { expect, fn } from "storybook/test";
 import { DEFAULT_ROOM_TYPE_FORM_DATA } from "../types/room-type";
+import { http, HttpResponse } from "msw";
 
 // More on how to set up stories at: https://storybook.js.org/docs/writing-stories#default-export
 const meta: Meta<RoomTypeFormProps> = {
@@ -9,6 +10,19 @@ const meta: Meta<RoomTypeFormProps> = {
   component: RoomTypeForm,
   parameters: {
     layout: "fullscreen",
+
+    msw: {
+      handlers: [
+        http.post("/api/images", () => {
+          return HttpResponse.json({
+            success: true,
+            message: "Image uploaded successfully",
+            filename: `image-${Date.now()}`,
+            url: `https://picsum.photos/200?${Date.now()}`,
+          });
+        }),
+      ],
+    },
   },
   tags: ["autodocs"],
   args: {
