@@ -12,7 +12,7 @@ export const CreateRoomTypePage = ({
   onCancel,
 }: CreateRoomTypePageProps) => {
   return (
-    <AdminLayout>
+    <AdminLayout pathname="/admin/room-types">
       <CreateRoomType onSuccess={onSuccess} onCancel={onCancel} />
     </AdminLayout>
   );

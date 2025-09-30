@@ -1,9 +1,14 @@
 import { useRouter } from "next/router";
-import SideBar from "../ui/side-bar";
 import { AdminHeader } from "./admin-header";
 import { Menu } from "lucide-react";
+import { Sidebar } from "./sidebar";
 
-const AdminLayout = ({ children }: { children: React.ReactNode }) => {
+export interface AdminLayoutProps {
+  children: React.ReactNode;
+  pathname?: string;
+}
+
+const AdminLayout = ({ children, pathname }: AdminLayoutProps) => {
   const { isFallback } = useRouter();
 
   return (
@@ -14,8 +19,8 @@ const AdminLayout = ({ children }: { children: React.ReactNode }) => {
           <Menu className="md:hidden" />
         </div>
       </div>
-      <aside className="h-full w-48 border-r bg-[#2F3E35] text-white hidden md:block pt-16">
-        <SideBar />
+      <aside className="h-full w-64 border-r bg-[#2F3E35] text-white hidden md:block pt-16">
+        <Sidebar pathname={pathname} />
       </aside>
       <main className="flex-1 bg-[#F6F7FD]">
         {isFallback ? <div>Loading...</div> : children}
