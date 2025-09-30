@@ -44,6 +44,7 @@ export const TextInput = ({
         className={cn(
           `p-2 rounded bg-white border-1 focus:border-primary focus:outline-none`,
           error ? "border-red-500" : "",
+          disabled ? "bg-gray-100" : "",
         )}
         disabled={disabled}
         {...props}

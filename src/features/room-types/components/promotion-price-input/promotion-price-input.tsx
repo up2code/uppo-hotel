@@ -8,7 +8,7 @@ export const PromotionPriceInput = () => {
 
   return (
     <div className="flex flex-col md:flex-row gap-2 w-full">
-      <div className="w-full">
+      <div>
         <div className="md:space-y-2">
           <div className="text-sm font-medium text-gray-700 h-5"></div>{" "}
           {/* Empty label space */}
