@@ -12,6 +12,7 @@ import { FormSelect } from "@/components/forms/form-select";
 import { RoomTypeFormData } from "../types/room-type";
 import { FormCheckbox } from "@/components/forms/form-checkbox";
 import { useForm } from "@/components/forms/form-provider/use-form";
+import { LoaderCircle } from "lucide-react";
 
 const roomTypeFormDataSchema = z.object({
   name: z.string().min(1, { message: "Required" }),
@@ -79,13 +80,34 @@ export const RoomTypeForm = ({
       disabled={loading}
     >
       <AdminHeader>
-        <div>Create New Room</div>
+        <div>{mode === "create" ? "Create Room Type" : "Edit Room Type"}</div>
         <div className="mr-4 flex gap-2">
-          <Button type="button" variant="secondary" onClick={onCancel}>
-            Cancel
-          </Button>
-          <Button variant="default" type="submit">
-            {mode === "create" ? "Create" : "Update"}
+          {mode === "create" && (
+            <Button
+              type="button"
+              variant="secondary"
+              onClick={onCancel}
+              disabled={loading}
+              className="min-w-24"
+            >
+              Cancel
+            </Button>
+          )}
+          <Button
+            variant="default"
+            type="submit"
+            disabled={loading}
+            className="min-w-24"
+          >
+            {loading ? (
+              <span className="animate-spin">
+                <LoaderCircle />
+              </span>
+            ) : mode === "create" ? (
+              "Create"
+            ) : (
+              "Update"
+            )}
           </Button>
         </div>
       </AdminHeader>
