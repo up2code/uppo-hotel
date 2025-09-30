@@ -15,6 +15,30 @@ export default meta;
 type Story = StoryObj<typeof meta>;
 
 // More on writing stories with args: https://storybook.js.org/docs/writing-stories/args
+export const All: Story = {
+  render: () => (
+    <div className="flex flex-col gap-4">
+      <Typography variant="h1">Headline 1</Typography>
+      <Typography variant="h2">Headline 2</Typography>
+      <Typography variant="h3">Headline 3</Typography>
+      <Typography variant="h4">Headline 4</Typography>
+      <Typography variant="h5">Headline 5</Typography>
+      <Typography variant="body1">
+        Body 1 - Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do
+        eiusmod tempor incididunt ut labore et dolore magna aliqua.
+      </Typography>
+      <Typography variant="body2">
+        Body 2 - Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do
+        eiusmod tempor incididunt ut labore et dolore magna aliqua.
+      </Typography>
+      <Typography variant="body3">
+        Body 3 - Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do
+        eiusmod tempor incididunt ut labore et dolore magna aliqua.
+      </Typography>
+    </div>
+  ),
+};
+
 export const Headline1: Story = {
   args: {
     variant: "h1",
