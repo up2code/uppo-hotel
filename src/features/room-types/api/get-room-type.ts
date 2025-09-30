@@ -13,7 +13,7 @@ export const getRoomType = async (id: string) => {
     guests: 4,
     pricePerNight: 3000,
     promotionPrice: 2000,
-    // amenities: ["Free Wi-Fi", "Air Conditioning", "Flat-screen TV", "Mini Bar"],
+    amenities: ["Free Wi-Fi", "Air Conditioning", "Flat-screen TV", "Mini Bar"],
   };
 
   return room;

@@ -4,7 +4,7 @@ import { FormTextInput } from "@/components/forms/form-text-input";
 
 export const PromotionPriceInput = () => {
   const { watch } = useForm();
-  const hasPromoPrice = watch("hasPromoPrice");
+  const hasPromoPrice = watch("hasPromoPrice") as boolean;
 
   return (
     <div className="flex flex-col md:flex-row gap-2 w-full">

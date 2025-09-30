@@ -23,6 +23,7 @@ export const CreateRoomType = ({
   const onCreate = (data: RoomTypeFormData) => {
     const payload: Omit<RoomType, "id"> = {
       ...data,
+      amenities: data.amenities.map((item) => item.value),
     };
     mutate(payload);
   };

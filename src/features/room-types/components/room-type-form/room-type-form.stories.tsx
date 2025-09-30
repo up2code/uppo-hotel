@@ -1,7 +1,10 @@
 import type { Meta, StoryObj } from "@storybook/nextjs-vite";
 import { RoomTypeForm, RoomTypeFormProps } from "./room-type-form";
 import { expect, fn } from "storybook/test";
-import { DEFAULT_ROOM_TYPE_FORM_DATA } from "../../types/room-type";
+import {
+  DEFAULT_ROOM_TYPE_FORM_DATA,
+  RoomTypeFormData,
+} from "../../types/room-type";
 import { http, HttpResponse } from "msw";
 
 // More on how to set up stories at: https://storybook.js.org/docs/writing-stories#default-export
@@ -75,6 +78,11 @@ export const PlayValidForm: Story = {
       pricePerNight: 3000.0,
       promotionPrice: 2000.0,
       hasPromoPrice: true,
+      amenities: [
+        { id: "1", value: "Free Wi-Fi" },
+        { id: "2", value: "Air Conditioning" },
+        { id: "3", value: "Flat-screen TV" },
+      ],
     },
   },
   play: async ({ args, canvas, userEvent }) => {
@@ -82,7 +90,7 @@ export const PlayValidForm: Story = {
 
     await userEvent.click(submitButton);
 
-    await expect(args.onSubmit).toHaveBeenCalledWith({
+    const expectedRoomTypeFormData: RoomTypeFormData = {
       name: "Deluxe Room",
       roomSize: 30,
       bedType: "king",
@@ -90,7 +98,17 @@ export const PlayValidForm: Story = {
       pricePerNight: 3000.0,
       hasPromoPrice: true,
       promotionPrice: 2000.0,
-    });
+      amenities: [
+        {
+          id: "1",
+          value: "Free Wi-Fi",
+        },
+        { id: "2", value: "Air Conditioning" },
+        { id: "3", value: "Flat-screen TV" },
+      ],
+    };
+
+    await expect(args.onSubmit).toHaveBeenCalledWith(expectedRoomTypeFormData);
   },
 };
 
