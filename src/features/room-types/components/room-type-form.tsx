@@ -10,11 +10,10 @@ import { Button } from "@/components/shared/button";
 import { Row } from "@/components/layouts/row";
 import { FormSelect } from "@/components/forms/form-select";
 import { RoomTypeFormData } from "../types/room-type";
-import { FormCheckbox } from "@/components/forms/form-checkbox";
-import { useForm } from "@/components/forms/form-provider/use-form";
 import { LoaderCircle } from "lucide-react";
 import { Divider } from "@/components/shared/divider";
 import { ImageInput } from "@/components/shared/image-input";
+import { PromotionPriceInput } from "./promotion-price-input";
 
 const roomTypeFormDataSchema = z.object({
   name: z.string().min(1, { message: "Required" }),
@@ -38,32 +37,6 @@ export interface RoomTypeFormProps {
   onChange?: (data: RoomTypeFormData) => void;
   onSubmit: (data: RoomTypeFormData) => void;
 }
-
-const PromotionPriceInput = () => {
-  const { watch } = useForm();
-  const hasPromoPrice = watch("hasPromoPrice");
-
-  return (
-    <div className="flex gap-2 w-full items-end">
-      <div className="flex-1">
-        <div className="space-y-2">
-          <div className="text-sm font-medium text-gray-700 h-5"></div>{" "}
-          {/* Empty label space */}
-          <div className="flex items-center justify-center h-10">
-            <FormCheckbox label="Promotion Price" name="hasPromoPrice" />
-          </div>
-        </div>
-      </div>
-      <div className="flex-2">
-        <FormTextInput
-          name="promotionPrice"
-          type="number"
-          disabled={!hasPromoPrice}
-        />
-      </div>
-    </div>
-  );
-};
 
 export const RoomTypeForm = ({
   mode,
@@ -167,14 +140,22 @@ export const RoomTypeForm = ({
                   type="number"
                 />
               </div>
-              <div className="flex-1 items-end hidden md:flex"></div>
+              <div className="flex-1 items-end hidden md:flex">
+                <PromotionPriceInput />
+              </div>
             </Row>
+
+            <div className="md:hidden">
+              <PromotionPriceInput />
+            </div>
 
             <Divider />
 
             <h3>Room Image</h3>
 
             <ImageInput name="images" label="Room Images" />
+
+            <Divider />
           </Column>
         </Paper>
       </div>

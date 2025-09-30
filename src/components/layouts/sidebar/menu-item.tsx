@@ -15,7 +15,7 @@ export const MenuItem = ({ path, label, active, icon }: MenuItemProps) => {
         "min-h-20 hover:cursor-pointer px-4 flex items-center gap-4 hover:text-white",
         active
           ? "bg-sidebar-accent text-white"
-          : "bg-sidebar-primary text-sidebar-primary-foreground hover:opacity-75 hover:bg-sidebar-accent"
+          : "bg-sidebar-primary text-sidebar-primary-foreground hover:opacity-75 hover:bg-sidebar-accent",
       )}
     >
       {icon}
