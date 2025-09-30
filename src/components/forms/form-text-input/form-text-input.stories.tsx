@@ -5,7 +5,6 @@ import { FormProvider } from "../form-provider/form-provider";
 import * as z from "zod";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { Button } from "@/components/shared/button";
-import { fn } from "storybook/test";
 
 interface Item {
   name: string;
@@ -23,14 +22,16 @@ const meta: Meta<typeof FormTextInput> = {
     label: "Name",
     name: "name",
   },
-  render: (args) => (
-    <FormProvider<Item> onSubmit={fn()} resolver={zodResolver(itemSchema)}>
-      <FormTextInput {...args} />
-      <Button type="submit" className="mt-4">
-        Submit
-      </Button>
-    </FormProvider>
-  ),
+  render: (args) => {
+    return (
+      <FormProvider<Item> resolver={zodResolver(itemSchema)}>
+        <FormTextInput {...args} />
+        <Button type="submit" className="mt-4">
+          Submit
+        </Button>
+      </FormProvider>
+    );
+  },
 };
 
 export default meta;
@@ -38,10 +39,10 @@ export default meta;
 type Story = StoryObj<typeof FormTextInput>;
 
 export const Valid: Story = {
+  args: {
+    defaultValue: "Demo",
+  },
   play: async ({ canvas, userEvent }) => {
-    const nameInput = await canvas.findByLabelText("Name");
-    await userEvent.type(nameInput, "Deluxe Room");
-
     const submitButton = await canvas.findByRole("button");
     await userEvent.click(submitButton);
   },

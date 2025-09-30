@@ -6,9 +6,14 @@ import { useForm } from "../form-provider/use-form";
 interface FormTextInputProps {
   name: string;
   label: string;
+  defaultValue?: string;
 }
 
-export const FormTextInput = ({ name, label }: FormTextInputProps) => {
+export const FormTextInput = ({
+  name,
+  label,
+  defaultValue,
+}: FormTextInputProps) => {
   const {
     control,
     formState: { errors },
@@ -18,6 +23,7 @@ export const FormTextInput = ({ name, label }: FormTextInputProps) => {
     <Controller
       name={name}
       control={control}
+      defaultValue={defaultValue}
       render={({ field }) => (
         <TextInput
           label={label}
