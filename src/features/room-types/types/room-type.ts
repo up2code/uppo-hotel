@@ -1,7 +1,7 @@
 export const DEFAULT_ROOM_TYPE_FORM_DATA: RoomTypeFormData = {
   name: "",
   roomSize: 0,
-  guests: "2",
+  guests: 2,
   bedType: "single",
 };
 
@@ -19,5 +19,5 @@ export interface RoomTypeFormData {
   name: string;
   roomSize: number;
   bedType: BedType;
-  guests: string;
+  guests: number;
 }

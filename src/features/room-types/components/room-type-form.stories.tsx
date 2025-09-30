@@ -57,7 +57,7 @@ export const PlayValidForm: Story = {
       name: "Deluxe Room",
       roomSize: 30,
       bedType: "king",
-      guests: "4",
+      guests: 4,
     },
   },
   play: async ({ args, canvas, userEvent }) => {
@@ -65,7 +65,12 @@ export const PlayValidForm: Story = {
 
     await userEvent.click(submitButton);
 
-    await expect(args.onSubmit).toHaveBeenCalled();
+    await expect(args.onSubmit).toHaveBeenCalledWith({
+      name: "Deluxe Room",
+      roomSize: 30,
+      bedType: "king",
+      guests: 4,
+    });
   },
 };
 

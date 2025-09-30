@@ -15,7 +15,6 @@ export const CreateRoomType = () => {
   const onCreate = (data: RoomTypeFormData) => {
     const payload: Omit<RoomType, "id"> = {
       ...data,
-      guests: Number(data.guests),
     };
     mutate(payload);
   };
