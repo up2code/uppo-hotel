@@ -57,6 +57,7 @@ export const PlayValidForm: Story = {
       name: "Deluxe Room",
       roomSize: 30,
       bedType: "king",
+      guests: "4",
     },
   },
   play: async ({ args, canvas, userEvent }) => {

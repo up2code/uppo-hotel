@@ -19,6 +19,7 @@ const roomTypeFormDataSchema = z.object({
   bedType: z.enum(["single", "double", "queen", "king"], {
     message: "Required",
   }),
+  guests: z.string(),
 });
 
 export interface RoomTypeFormProps {
@@ -79,6 +80,23 @@ export const RoomTypeForm = ({
                   ]}
                 />
               </div>
+            </Row>
+            <Row>
+              <div className="flex-1">
+                <FormSelect
+                  label="Guest(s)"
+                  name="guests"
+                  placeholder="Select number of guests"
+                  options={[
+                    { value: "2", label: "2" },
+                    { value: "3", label: "3" },
+                    { value: "4", label: "4" },
+                    { value: "5", label: "5" },
+                    { value: "6", label: "6" },
+                  ]}
+                />
+              </div>
+              <div className="flex-1"></div>
             </Row>
           </Column>
         </Paper>
