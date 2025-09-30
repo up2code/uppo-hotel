@@ -58,6 +58,7 @@ export const PlayValidForm: Story = {
       roomSize: 30,
       bedType: "king",
       guests: 4,
+      pricePerNight: 3000.0,
     },
   },
   play: async ({ args, canvas, userEvent }) => {
@@ -70,6 +71,7 @@ export const PlayValidForm: Story = {
       roomSize: 30,
       bedType: "king",
       guests: 4,
+      pricePerNight: 3000.0,
     });
   },
 };

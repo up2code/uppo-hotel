@@ -20,6 +20,7 @@ const roomTypeFormDataSchema = z.object({
     message: "Required",
   }),
   guests: z.number(),
+  pricePerNight: z.number().min(0, { message: "Required" }),
 });
 
 export interface RoomTypeFormProps {
@@ -94,6 +95,16 @@ export const RoomTypeForm = ({
                     { value: 5, label: "5" },
                     { value: 6, label: "6" },
                   ]}
+                />
+              </div>
+              <div className="flex-1"></div>
+            </Row>
+            <Row>
+              <div className="flex-1">
+                <FormTextInput
+                  label="Price per Night(THB)"
+                  name="pricePerNight"
+                  type="number"
                 />
               </div>
               <div className="flex-1"></div>
