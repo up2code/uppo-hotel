@@ -9,16 +9,27 @@ export interface TextInputProps
   name?: string;
 }
 
-export const TextInput = ({ label, error, name, ...props }: TextInputProps) => {
+export const TextInput = ({
+  label,
+  error,
+  name,
+  disabled,
+  ...props
+}: TextInputProps) => {
   const inputId = props.id || `input-${name}`;
   const errorId = error ? `${name}-error` : undefined;
 
   return (
-    <div className="flex flex-col flex-1 relative">
+    <div
+      className={cn(
+        "flex flex-col flex-1 relative w-full",
+        disabled ? "opacity-50 cursor-not-allowed" : "",
+      )}
+    >
       {label && (
         <label
           htmlFor={inputId}
-          className={cn(`mb-1`, props.disabled ? "text-gray-400" : "")}
+          className={cn(`mb-1`, disabled ? "text-gray-400" : "")}
         >
           {label}
         </label>
@@ -33,6 +44,7 @@ export const TextInput = ({ label, error, name, ...props }: TextInputProps) => {
           `p-2 rounded bg-white border-1 focus:border-primary focus:outline-none`,
           error ? "border-red-500" : "",
         )}
+        disabled={disabled}
         {...props}
       />
       {error && (

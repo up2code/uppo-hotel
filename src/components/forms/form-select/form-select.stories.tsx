@@ -1,31 +1,37 @@
 import type { Meta, StoryObj } from "@storybook/nextjs-vite";
 
-import { FormTextInput } from "./form-text-input";
+import { FormSelect } from "./form-select";
 import { FormProvider } from "../form-provider/form-provider";
 import * as z from "zod";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { Button } from "@/components/shared/button";
 
 interface Item {
-  name: string;
+  fruit: string;
 }
 const itemSchemaValidation = {
-  name: z.string({ message: "Name is required" }),
+  fruit: z.string({ message: "Fruit is required" }),
 };
 
 const itemSchema = z.object(itemSchemaValidation);
 
-const meta: Meta<typeof FormTextInput> = {
-  title: "Forms/FormTextInput",
-  component: FormTextInput,
+const meta: Meta<typeof FormSelect> = {
+  title: "Forms/FormSelect",
+  component: FormSelect,
   args: {
-    label: "Name",
-    name: "name",
+    label: "ผลไม้",
+    name: "fruit",
+    placeholder: "เลือกผลไม้",
+    options: [
+      { value: "apple", label: "Apple" },
+      { value: "banana", label: "Banana" },
+      { value: "cherry", label: "Cherry" },
+    ],
   },
   render: (args) => {
     return (
       <FormProvider<Item> resolver={zodResolver(itemSchema)}>
-        <FormTextInput {...args} />
+        <FormSelect {...args} />
         <Button type="submit" className="mt-4">
           Submit
         </Button>
@@ -36,27 +42,23 @@ const meta: Meta<typeof FormTextInput> = {
 
 export default meta;
 
-type Story = StoryObj<typeof FormTextInput>;
+type Story = StoryObj<typeof FormSelect>;
 
 export const Valid: Story = {
   args: {
-    defaultValue: "Demo",
-  },
-  play: async ({ canvas, userEvent }) => {
-    const submitButton = await canvas.findByRole("button");
-    await userEvent.click(submitButton);
+    defaultValue: "banana",
   },
 };
 
 export const Invalid: Story = {
   play: async ({ canvas }) => {
-    canvas.getByRole("button", { name: "Submit" }).click();
+    canvas.getByRole("button").click();
   },
 };
 
 export const Disabled: Story = {
   args: {
-    defaultValue: "Demo",
+    defaultValue: "banana",
     disabled: true,
   },
 };

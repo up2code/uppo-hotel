@@ -9,6 +9,7 @@ import {
 
 interface FormProviderProps<T extends FieldValues> {
   children: React.ReactNode;
+  disabled?: boolean;
   onSubmit?: SubmitHandler<T>;
   defaultValues?: DefaultValues<T>;
   resolver?: Resolver<T, unknown, T>;
@@ -19,10 +20,12 @@ export const FormProvider = <T extends FieldValues>({
   onSubmit,
   defaultValues,
   resolver,
+  disabled,
 }: FormProviderProps<T>) => {
   const methods = useRHFForm<T>({
     defaultValues,
     resolver: resolver,
+    disabled,
   });
   const handleSubmit: SubmitHandler<T> = (data: T) => onSubmit?.(data);
 

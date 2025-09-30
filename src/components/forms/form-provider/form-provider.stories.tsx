@@ -5,12 +5,16 @@ import { FormProvider } from "./form-provider";
 import * as z from "zod";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { FormTextInput } from "../form-text-input";
+import { FormSelect } from "../form-select";
+import { Column } from "@/components/layouts/column";
 
 interface Item {
   name: string;
+  fruit: string;
 }
 const itemSchemaValidation = {
   name: z.string({ message: "Name is required" }),
+  fruit: z.string({ message: "Fruit is required" }),
 };
 
 const itemSchema = z.object(itemSchemaValidation);
@@ -38,12 +42,23 @@ const meta: Meta<typeof FormProvider> = {
     <FormProvider<Item>
       defaultValues={args.defaultValues}
       onSubmit={args.onSubmit}
+      disabled={args.disabled}
       resolver={zodResolver(itemSchema)}
     >
-      <FormTextInput label="Name" name="name" />
-      <Button type="submit" className="mt-4">
-        Submit
-      </Button>
+      <Column>
+        <FormTextInput label="Name" name="name" />
+        <FormSelect
+          label="Fruit"
+          name="fruit"
+          placeholder="Select a fruit"
+          options={[
+            { value: "apple", label: "Apple" },
+            { value: "banana", label: "Banana" },
+            { value: "cherry", label: "Cherry" },
+          ]}
+        />
+        <Button type="submit">Submit</Button>
+      </Column>
     </FormProvider>
   ),
 } satisfies Meta<typeof FormProvider>;
@@ -55,6 +70,7 @@ export const ValidForm: Story = {
   args: {
     defaultValues: {
       name: "John Doe",
+      fruit: "banana",
     },
   },
   play: async ({ canvas }) => {
@@ -65,5 +81,15 @@ export const ValidForm: Story = {
 export const InvalidForm: Story = {
   play: async ({ canvas }) => {
     canvas.getByRole("button", { name: "Submit" }).click();
+  },
+};
+
+export const DisabledForm: Story = {
+  args: {
+    defaultValues: {
+      name: "John Doe",
+      fruit: "banana",
+    },
+    disabled: true,
   },
 };
