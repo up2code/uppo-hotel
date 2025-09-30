@@ -1,29 +1,32 @@
-import { useForm } from "react-hook-form";
-import { TextInput, TextInputProps } from "@/components/shared/text-input";
-import { cn } from "@/lib/utils";
-import { Button } from "@/components/shared/button";
 import { z } from "zod";
 import { zodResolver } from "@hookform/resolvers/zod";
 import React from "react";
-import { RoomType } from "../types/room-type";
+import { FormProvider } from "@/components/forms/form-provider/form-provider";
+import { FormTextInput } from "@/components/forms/form-text-input";
+import { Column } from "@/components/layouts/column";
+import { Paper } from "@/components/shared/paper";
+import { AdminHeader } from "@/components/layouts/admin-header";
+import { Button } from "@/components/shared/button";
+import { Row } from "@/components/layouts/row";
+import { FormSelect } from "@/components/forms/form-select";
+import { RoomTypeFormData } from "../types/room-type";
 
 const roomTypeFormDataSchema = z.object({
   name: z.string().min(1, { message: "Required" }),
   roomSize: z
     .number({ message: "Number only" })
     .min(1, { message: "Required" }),
+  bedType: z.enum(["single", "double", "queen", "king"], {
+    message: "Required",
+  }),
 });
-
-interface RoomTypeFormData extends Omit<RoomType, "amenities"> {
-  amenities?: Record<string, string>[];
-}
 
 export interface RoomTypeFormProps {
   mode: "create" | "edit";
-  defaultValues: RoomType;
+  defaultValues: RoomTypeFormData;
   loading: boolean;
-  onChange?: (data: RoomType) => void;
-  onSubmit: (data: RoomType) => void;
+  onChange?: (data: RoomTypeFormData) => void;
+  onSubmit: (data: RoomTypeFormData) => void;
 }
 
 export const RoomTypeForm = ({
@@ -33,59 +36,53 @@ export const RoomTypeForm = ({
   onSubmit,
 }: RoomTypeFormProps) => {
   // Hook form
-  const {
-    handleSubmit,
-    register,
-    formState: { errors },
-  } = useForm({
-    defaultValues: {
-      ...room,
-    },
-    resolver: zodResolver(roomTypeFormDataSchema),
-  });
-
-  const parseFormData = async (data: RoomTypeFormData) => {
-    // Transform amenities from array of objects to array of strings
-    const transformedData: RoomType = {
-      ...data,
-    };
-
-    onSubmit(transformedData);
-  };
 
   return (
-    <form
-      onSubmit={handleSubmit(parseFormData)}
-      className={cn(
-        `min-h-screen bg-gray-100 pb-8`,
-        loading && "opacity-50 cursor-not-allowed",
-      )}
+    <FormProvider<RoomTypeFormData>
+      onSubmit={onSubmit}
+      resolver={zodResolver(roomTypeFormDataSchema)}
+      defaultValues={room}
+      disabled={loading}
     >
-      <div className="p-4 space-y-4 bg-white rounded-lg shadow m-8">
-        <h2 className="text-2xl font-bold mb-4">
-          {mode === "edit" ? "Edit" : "Create"} Room
-        </h2>
+      <AdminHeader>
+        <div>Create New Room</div>
+        <div className="mr-4 flex gap-2">
+          <Button variant="secondary">Cancel</Button>
+          <Button variant="default" type="submit">
+            {mode === "create" ? "Create" : "Update"}
+          </Button>
+        </div>
+      </AdminHeader>
 
-        <Button type="submit" disabled={loading} className="mb-4">
-          {mode === "edit" ? "Update Room" : "Create Room"}
-        </Button>
-
-        <TextInput
-          label="Room Type"
-          disabled={loading}
-          error={errors.name?.message as TextInputProps["error"]}
-          {...register("name")}
-        />
-
-        <TextInput
-          label="Room Size(sqm)"
-          type="number"
-          min={1}
-          disabled={loading}
-          error={errors.roomSize?.message as TextInputProps["error"]}
-          {...register("roomSize", { valueAsNumber: true })}
-        />
+      <div className="p-8 bg-gray-100 h-screen">
+        <Paper>
+          <Column>
+            <FormTextInput label="Room Type" name="name" />
+            <Row>
+              <div className="flex-1">
+                <FormTextInput
+                  label="Room Size(sqm)"
+                  name="roomSize"
+                  type="number"
+                />
+              </div>
+              <div className="flex-1">
+                <FormSelect
+                  label="Bed Type"
+                  name="bedType"
+                  placeholder="Select bed type"
+                  options={[
+                    { value: "single", label: "Single" },
+                    { value: "double", label: "Double" },
+                    { value: "queen", label: "Queen" },
+                    { value: "king", label: "King" },
+                  ]}
+                />
+              </div>
+            </Row>
+          </Column>
+        </Paper>
       </div>
-    </form>
+    </FormProvider>
   );
 };

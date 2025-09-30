@@ -1,6 +1,7 @@
 import type { Meta, StoryObj } from "@storybook/nextjs-vite";
 import { RoomTypeForm, RoomTypeFormProps } from "./room-type-form";
 import { expect, fn } from "storybook/test";
+import { DEFAULT_ROOM_TYPE_FORM_DATA } from "../types/room-type";
 
 // More on how to set up stories at: https://storybook.js.org/docs/writing-stories#default-export
 const meta: Meta<RoomTypeFormProps> = {
@@ -13,7 +14,7 @@ const meta: Meta<RoomTypeFormProps> = {
   args: {
     onSubmit: fn(),
     onChange: fn(),
-    defaultValues: { name: "" },
+    defaultValues: DEFAULT_ROOM_TYPE_FORM_DATA,
   },
 } satisfies Meta<typeof RoomTypeForm>;
 
@@ -52,30 +53,18 @@ export const PlayValidForm: Story = {
   args: {
     mode: "create",
     loading: false,
+    defaultValues: {
+      name: "Deluxe Room",
+      roomSize: 30,
+      bedType: "king",
+    },
   },
-  play: async ({ args, canvas, userEvent, step }) => {
-    await step("Fill in the form", async () => {
-      const nameInput = (await canvas.findByLabelText(
-        "Room Type",
-      )) as HTMLInputElement;
+  play: async ({ args, canvas, userEvent }) => {
+    const submitButton = await canvas.findByRole("button", { name: /create/i });
 
-      await userEvent.type(nameInput, "Deluxe Room");
+    await userEvent.click(submitButton);
 
-      const roomSizeInput = (await canvas.findByLabelText(
-        "Room Size(sqm)",
-      )) as HTMLInputElement;
-
-      await userEvent.type(roomSizeInput, "32");
-    });
-
-    await step("Click submit", async () => {
-      const submitButton = await canvas.findByRole("button");
-      await userEvent.click(submitButton);
-    });
-
-    await step("Verify onSubmit called", async () => {
-      await expect(args.onSubmit).toHaveBeenCalled();
-    });
+    await expect(args.onSubmit).toHaveBeenCalled();
   },
 };
 
@@ -84,18 +73,15 @@ export const InvalidForm: Story = {
     mode: "create",
     loading: false,
   },
-  play: async ({ canvas, userEvent, step }) => {
-    await step("Click submit", async () => {
-      const submitButton = canvas.getByRole("button");
-      await userEvent.click(submitButton);
-    });
+  play: async ({ canvas, userEvent }) => {
+    const submitButton = canvas.getByRole("button", { name: /create/i });
 
-    await step("Verify error messages", async () => {
-      const nameInputError = await canvas.findByTestId("name-error");
-      const roomSizeInputError = await canvas.findByTestId("roomSize-error");
+    await userEvent.click(submitButton);
 
-      await expect(nameInputError).toHaveTextContent("Required");
-      await expect(roomSizeInputError).toHaveTextContent("Number only");
-    });
+    const nameInputError = await canvas.findByTestId("name-error");
+    const roomSizeInputError = await canvas.findByTestId("roomSize-error");
+
+    await expect(nameInputError).toHaveTextContent("Required");
+    await expect(roomSizeInputError).toHaveTextContent("Required");
   },
 };

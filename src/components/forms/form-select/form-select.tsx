@@ -39,10 +39,11 @@ export const FormSelect = ({
       render={({ field, fieldState }) => (
         <div>
           {label && (
-            <label className={cn(`mb-1`, isDisabled ? "text-gray-400" : "")}>
+            <label className={cn(isDisabled ? "text-gray-400" : "")}>
               {label}
             </label>
           )}
+          <div className="size-1"></div>
           <Select onValueChange={field.onChange} value={field.value}>
             <SelectTrigger className="w-full" disabled={field.disabled}>
               <SelectValue placeholder={placeholder} />

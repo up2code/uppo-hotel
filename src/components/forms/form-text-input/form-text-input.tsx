@@ -4,12 +4,17 @@ import { Controller } from "react-hook-form";
 import { useForm } from "../form-provider/use-form";
 import { FormInput } from "../types";
 
+interface FormTextInputProps extends FormInput {
+  type?: string;
+}
+
 export const FormTextInput = ({
   name,
   label,
   defaultValue,
   disabled,
-}: FormInput) => {
+  type = "text",
+}: FormTextInputProps) => {
   const {
     control,
     formState: { disabled: formDisabled },
@@ -21,8 +26,16 @@ export const FormTextInput = ({
       disabled={disabled || formDisabled}
       control={control}
       defaultValue={defaultValue}
-      render={({ field, fieldState }) => (
-        <TextInput label={label} error={fieldState.error?.message} {...field} />
+      render={({ field: { onChange, ...props }, fieldState }) => (
+        <TextInput
+          type={type}
+          label={label}
+          error={fieldState.error?.message}
+          onChange={(e) =>
+            type === "number" ? onChange(+e.target.value) : onChange(e)
+          }
+          {...props}
+        />
       )}
     />
   );

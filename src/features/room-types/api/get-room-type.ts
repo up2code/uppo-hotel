@@ -8,6 +8,8 @@ export const getRoomType = async (id: string) => {
   const room: RoomType = {
     id,
     name: "Sample Room ja",
+    roomSize: 30,
+    bedType: "queen",
     // amenities: ["Free Wi-Fi", "Air Conditioning", "Flat-screen TV", "Mini Bar"],
   };
 
