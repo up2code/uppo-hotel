@@ -21,6 +21,7 @@ const roomTypeFormDataSchema = z.object({
   }),
   guests: z.number(),
   pricePerNight: z.number().min(0, { message: "Required" }),
+  promotionPrice: z.number().optional(),
 });
 
 export interface RoomTypeFormProps {
@@ -107,7 +108,19 @@ export const RoomTypeForm = ({
                   type="number"
                 />
               </div>
-              <div className="flex-1"></div>
+              <div className="flex flex-1 items-end">
+                <div className="flex-1  h-full flex items-center pt-6">
+                  <input
+                    type="checkbox"
+                    name="promotionPriceIncluded"
+                    className="mr-2"
+                  />
+                  <span>Promotion Price</span>
+                </div>
+                <div className="flex-3">
+                  <FormTextInput name="promotionPrice" type="number" />
+                </div>
+              </div>
             </Row>
           </Column>
         </Paper>
