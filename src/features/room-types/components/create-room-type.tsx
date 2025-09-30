@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { RoomTypeForm } from "./room-type-form";
 import { useCreateRoomType } from "../api/create-room-type";
 import { useNotify } from "@/hooks/useNotify";
@@ -8,7 +8,15 @@ import {
   RoomTypeFormData,
 } from "../types/room-type";
 
-export const CreateRoomType = () => {
+export interface CreateRoomTypeProps {
+  onCancel?: () => void;
+  onSuccess?: (data?: RoomType) => void;
+}
+
+export const CreateRoomType = ({
+  onSuccess,
+  onCancel,
+}: CreateRoomTypeProps) => {
   const notify = useNotify();
   const { data: createdResponse, loading, mutate } = useCreateRoomType();
 
@@ -19,9 +27,12 @@ export const CreateRoomType = () => {
     mutate(payload);
   };
 
-  if (createdResponse) {
-    notify("Room type created successfully");
-  }
+  useEffect(() => {
+    if (createdResponse) {
+      notify("Room type created successfully");
+      onSuccess?.();
+    }
+  }, [createdResponse, notify, onSuccess]);
 
   return (
     <RoomTypeForm
@@ -29,6 +40,7 @@ export const CreateRoomType = () => {
       defaultValues={DEFAULT_ROOM_TYPE_FORM_DATA}
       loading={loading}
       onSubmit={onCreate}
+      onCancel={onCancel}
     />
   );
 };

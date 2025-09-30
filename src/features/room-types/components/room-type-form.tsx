@@ -31,6 +31,7 @@ export interface RoomTypeFormProps {
   mode: "create" | "edit";
   defaultValues: RoomTypeFormData;
   loading: boolean;
+  onCancel?: () => void;
   onChange?: (data: RoomTypeFormData) => void;
   onSubmit: (data: RoomTypeFormData) => void;
 }
@@ -66,6 +67,7 @@ export const RoomTypeForm = ({
   defaultValues: room,
   loading,
   onSubmit,
+  onCancel,
 }: RoomTypeFormProps) => {
   // Hook form
 
@@ -79,7 +81,9 @@ export const RoomTypeForm = ({
       <AdminHeader>
         <div>Create New Room</div>
         <div className="mr-4 flex gap-2">
-          <Button variant="secondary">Cancel</Button>
+          <Button type="button" variant="secondary" onClick={onCancel}>
+            Cancel
+          </Button>
           <Button variant="default" type="submit">
             {mode === "create" ? "Create" : "Update"}
           </Button>
