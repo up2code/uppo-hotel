@@ -6,6 +6,7 @@ export interface TextInputProps
   extends React.InputHTMLAttributes<HTMLInputElement> {
   label?: string;
   error?: string;
+  name?: string;
 }
 
 export const TextInput = ({ label, error, name, ...props }: TextInputProps) => {
