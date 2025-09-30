@@ -4,7 +4,7 @@ import { fireEvent, screen } from "@testing-library/react";
 // Replace your-framework with the framework you are using, e.g. react-vite, nextjs, nextjs-vite, etc.
 import { composeStories } from "@storybook/nextjs-vite";
 
-import * as stories from "./../room-type-form.stories"; // 👈 Our stories imported here.
+import * as stories from "../room-type-form/room-type-form.stories"; // 👈 Our stories imported here.
 
 const { InvalidForm } = composeStories(stories);
 

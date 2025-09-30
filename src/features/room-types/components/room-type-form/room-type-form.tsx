@@ -9,11 +9,11 @@ import { AdminHeader } from "@/components/layouts/admin-header";
 import { Button } from "@/components/shared/button";
 import { Row } from "@/components/layouts/row";
 import { FormSelect } from "@/components/forms/form-select";
-import { RoomTypeFormData } from "../types/room-type";
+import { RoomTypeFormData } from "../../types/room-type";
 import { LoaderCircle } from "lucide-react";
 import { Divider } from "@/components/shared/divider";
 import { ImageInput } from "@/components/shared/image-input";
-import { PromotionPriceInput } from "./promotion-price-input";
+import { PromotionPriceInput } from "../promotion-price-input/promotion-price-input";
 
 const roomTypeFormDataSchema = z.object({
   name: z.string().min(1, { message: "Required" }),

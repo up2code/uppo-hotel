@@ -1,12 +1,12 @@
 import React, { useEffect } from "react";
-import { RoomTypeForm } from "./room-type-form";
-import { useCreateRoomType } from "../api/create-room-type";
+import { RoomTypeForm } from "@/features/room-types/components/room-type-form/room-type-form";
+import { useCreateRoomType } from "@/features/room-types/api/create-room-type";
 import { useNotify } from "@/hooks/useNotify";
 import {
   DEFAULT_ROOM_TYPE_FORM_DATA,
   RoomType,
   RoomTypeFormData,
-} from "../types/room-type";
+} from "@/features/room-types/types/room-type";
 
 export interface CreateRoomTypeProps {
   onCancel?: () => void;
