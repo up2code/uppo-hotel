@@ -12,7 +12,7 @@ export const FormTextInput = ({
 }: FormInput) => {
   const {
     control,
-    formState: { errors, disabled: formDisabled },
+    formState: { disabled: formDisabled },
   } = useForm();
 
   return (
@@ -21,12 +21,8 @@ export const FormTextInput = ({
       disabled={disabled || formDisabled}
       control={control}
       defaultValue={defaultValue}
-      render={({ field }) => (
-        <TextInput
-          label={label}
-          error={errors[name]?.message as string | undefined}
-          {...field}
-        />
+      render={({ field, fieldState }) => (
+        <TextInput label={label} error={fieldState.error?.message} {...field} />
       )}
     />
   );
