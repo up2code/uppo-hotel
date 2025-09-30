@@ -5,6 +5,7 @@ export const DEFAULT_ROOM_TYPE_FORM_DATA: RoomTypeFormData = {
   bedType: "single",
   pricePerNight: 0,
   promotionPrice: 0,
+  hasPromoPrice: false,
 };
 
 export type BedType = "single" | "double" | "queen" | "king";
@@ -17,6 +18,7 @@ export interface RoomType {
   guests: number;
   pricePerNight: number;
   promotionPrice?: number;
+  hasPromoPrice?: boolean;
 }
 
 export interface RoomTypeFormData {
@@ -26,4 +28,5 @@ export interface RoomTypeFormData {
   guests: number;
   pricePerNight: number;
   promotionPrice?: number;
+  hasPromoPrice?: boolean;
 }

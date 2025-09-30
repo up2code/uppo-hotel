@@ -10,6 +10,8 @@ import { Button } from "@/components/shared/button";
 import { Row } from "@/components/layouts/row";
 import { FormSelect } from "@/components/forms/form-select";
 import { RoomTypeFormData } from "../types/room-type";
+import { FormCheckbox } from "@/components/forms/form-checkbox";
+import { useForm } from "@/components/forms/form-provider/use-form";
 
 const roomTypeFormDataSchema = z.object({
   name: z.string().min(1, { message: "Required" }),
@@ -22,6 +24,7 @@ const roomTypeFormDataSchema = z.object({
   guests: z.number(),
   pricePerNight: z.number().min(0, { message: "Required" }),
   promotionPrice: z.number().optional(),
+  hasPromoPrice: z.boolean().optional(),
 });
 
 export interface RoomTypeFormProps {
@@ -31,6 +34,32 @@ export interface RoomTypeFormProps {
   onChange?: (data: RoomTypeFormData) => void;
   onSubmit: (data: RoomTypeFormData) => void;
 }
+
+const PromotionPriceInput = () => {
+  const { watch } = useForm();
+  const hasPromoPrice = watch("hasPromoPrice");
+
+  return (
+    <div className="flex gap-2 w-full items-end">
+      <div className="flex-1">
+        <div className="space-y-2">
+          <div className="text-sm font-medium text-gray-700 h-5"></div>{" "}
+          {/* Empty label space */}
+          <div className="flex items-center justify-center h-10">
+            <FormCheckbox label="Promotion Price" name="hasPromoPrice" />
+          </div>
+        </div>
+      </div>
+      <div className="flex-2">
+        <FormTextInput
+          name="promotionPrice"
+          type="number"
+          disabled={!hasPromoPrice}
+        />
+      </div>
+    </div>
+  );
+};
 
 export const RoomTypeForm = ({
   mode,
@@ -109,17 +138,7 @@ export const RoomTypeForm = ({
                 />
               </div>
               <div className="flex flex-1 items-end">
-                <div className="flex-1  h-full flex items-center pt-6">
-                  <input
-                    type="checkbox"
-                    name="promotionPriceIncluded"
-                    className="mr-2"
-                  />
-                  <span>Promotion Price</span>
-                </div>
-                <div className="flex-3">
-                  <FormTextInput name="promotionPrice" type="number" />
-                </div>
+                <PromotionPriceInput />
               </div>
             </Row>
           </Column>

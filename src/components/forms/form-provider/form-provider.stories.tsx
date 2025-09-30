@@ -7,14 +7,17 @@ import { zodResolver } from "@hookform/resolvers/zod";
 import { FormTextInput } from "../form-text-input";
 import { FormSelect } from "../form-select";
 import { Column } from "@/components/layouts/column";
+import { FormCheckbox } from "../form-checkbox";
 
 interface Item {
   name: string;
   fruit: string;
+  terms?: boolean;
 }
 const itemSchemaValidation = {
   name: z.string({ message: "Name is required" }),
   fruit: z.string({ message: "Fruit is required" }),
+  terms: z.boolean().optional(),
 };
 
 const itemSchema = z.object(itemSchemaValidation);
@@ -57,6 +60,7 @@ const meta: Meta<typeof FormProvider> = {
             { value: "cherry", label: "Cherry" },
           ]}
         />
+        <FormCheckbox label="Accept Terms and Conditions" name="terms" />
         <Button type="submit">Submit</Button>
       </Column>
     </FormProvider>
@@ -89,6 +93,7 @@ export const DisabledForm: Story = {
     defaultValues: {
       name: "John Doe",
       fruit: "banana",
+      terms: true,
     },
     disabled: true,
   },

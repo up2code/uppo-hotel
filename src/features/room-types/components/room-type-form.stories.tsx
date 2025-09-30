@@ -60,6 +60,7 @@ export const PlayValidForm: Story = {
       guests: 4,
       pricePerNight: 3000.0,
       promotionPrice: 2000.0,
+      hasPromoPrice: true,
     },
   },
   play: async ({ args, canvas, userEvent }) => {
@@ -73,6 +74,7 @@ export const PlayValidForm: Story = {
       bedType: "king",
       guests: 4,
       pricePerNight: 3000.0,
+      hasPromoPrice: true,
       promotionPrice: 2000.0,
     });
   },
