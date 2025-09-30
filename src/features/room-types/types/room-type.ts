@@ -8,6 +8,7 @@ export const DEFAULT_ROOM_TYPE_FORM_DATA: RoomTypeFormData = {
   pricePerNight: 0,
   promotionPrice: 0,
   hasPromoPrice: false,
+  mainImageUrl: "",
   amenities: [{ id: nanoid(), value: "" }],
 };
 
@@ -22,6 +23,7 @@ export interface RoomType {
   pricePerNight: number;
   promotionPrice?: number;
   hasPromoPrice?: boolean;
+  mainImageUrl: string;
   amenities: string[];
 }
 
@@ -38,5 +40,6 @@ export interface RoomTypeFormData {
   pricePerNight: number;
   promotionPrice?: number;
   hasPromoPrice?: boolean;
+  mainImageUrl: string;
   amenities: AmenityFormItem[];
 }

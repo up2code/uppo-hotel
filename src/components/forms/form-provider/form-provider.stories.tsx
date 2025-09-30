@@ -8,16 +8,19 @@ import { FormTextInput } from "../form-text-input";
 import { FormSelect } from "../form-select";
 import { Column } from "@/components/layouts/column";
 import { FormCheckbox } from "../form-checkbox";
+import { FormImageInput } from "../form-image-input";
 
 interface Item {
   name: string;
   fruit: string;
   terms?: boolean;
+  imageUrl?: string;
 }
 const itemSchemaValidation = {
   name: z.string({ message: "Name is required" }),
   fruit: z.string({ message: "Fruit is required" }),
   terms: z.boolean().optional(),
+  imageUrl: z.string().optional(),
 };
 
 const itemSchema = z.object(itemSchemaValidation);
@@ -61,6 +64,7 @@ const meta: Meta<typeof FormProvider> = {
           ]}
         />
         <FormCheckbox label="Accept Terms and Conditions" name="terms" />
+        <FormImageInput label="Profile Picture" name="imageUrl" />
         <Button type="submit">Submit</Button>
       </Column>
     </FormProvider>
@@ -75,6 +79,8 @@ export const ValidForm: Story = {
     defaultValues: {
       name: "John Doe",
       fruit: "banana",
+      terms: true,
+      imageUrl: "https://placehold.co/600",
     },
   },
   play: async ({ canvas }) => {

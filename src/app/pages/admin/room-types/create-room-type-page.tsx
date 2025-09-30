@@ -1,5 +1,5 @@
 import { AdminLayout } from "@/components/layouts/admin-layout";
-import { CreateRoomType } from "@/features/room-types/components/create-room-type";
+import { CreateRoomType } from "@/features/room-types/components/create-room-type/create-room-type";
 import React from "react";
 
 export interface CreateRoomTypePageProps {

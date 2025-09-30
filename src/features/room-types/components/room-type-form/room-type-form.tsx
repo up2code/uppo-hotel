@@ -12,9 +12,9 @@ import { FormSelect } from "@/components/forms/form-select";
 import { RoomTypeFormData } from "../../types/room-type";
 import { LoaderCircle } from "lucide-react";
 import { Divider } from "@/components/shared/divider";
-import { ImageInput } from "@/components/shared/image-input";
 import { PromotionPriceInput } from "../promotion-price-input/promotion-price-input";
 import { AmenitiesListInput } from "../amenities-list-input/amenities-list-input";
+import { FormImageInput } from "@/components/forms/form-image-input";
 
 const roomTypeFormDataSchema = z.object({
   name: z.string().min(1, { message: "Required" }),
@@ -28,6 +28,7 @@ const roomTypeFormDataSchema = z.object({
   pricePerNight: z.number().min(0, { message: "Required" }),
   promotionPrice: z.number().optional(),
   hasPromoPrice: z.boolean().optional(),
+  mainImageUrl: z.string(),
   amenities: z.array(
     z.object({
       id: z.string().optional(),
@@ -160,7 +161,7 @@ export const RoomTypeForm = ({
 
             <h3>Room Image</h3>
 
-            <ImageInput name="images" label="Room Images" />
+            <FormImageInput name="mainImageUrl" label="Main Image" />
 
             <Divider />
 

@@ -78,6 +78,7 @@ export const PlayValidForm: Story = {
       pricePerNight: 3000.0,
       promotionPrice: 2000.0,
       hasPromoPrice: true,
+      mainImageUrl: "https://picsum.photos/200",
       amenities: [
         { id: "1", value: "Free Wi-Fi" },
         { id: "2", value: "Air Conditioning" },
@@ -98,6 +99,7 @@ export const PlayValidForm: Story = {
       pricePerNight: 3000.0,
       hasPromoPrice: true,
       promotionPrice: 2000.0,
+      mainImageUrl: "https://picsum.photos/200",
       amenities: [
         {
           id: "1",
