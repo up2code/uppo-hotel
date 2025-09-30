@@ -1,4 +1,9 @@
+import { useQuery } from "@/hooks/useQuery";
 import { RoomType } from "../types/room-type";
+
+export const useGetRoomType = (id: string) => {
+  return useQuery<RoomType>(`/room-types/${id}`, () => getRoomType(id));
+};
 
 export const getRoomType = async (id: string) => {
   // Simulate fetching room data by ID
