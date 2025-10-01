@@ -8,10 +8,8 @@ export interface PaginationResponse<T> {
   items: T[];
 }
 
-export const useListRoomType = () => {
-  return useQuery<PaginationResponse<RoomType>>(`/room-types`, () =>
-    listRoomTypes(),
-  );
+export const useListRoomType = (key: string) => {
+  return useQuery<PaginationResponse<RoomType>>(key, () => listRoomTypes());
 };
 
 export const listRoomTypes = async (): Promise<
