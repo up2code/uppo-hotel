@@ -24,7 +24,7 @@ export const EditRoomType = ({
 }: UpdateRoomTypeProps) => {
   const notify = useNotify();
   const { loading, mutate } = useUpdateRoomType(id);
-  const { data: roomTypeData, loading: fetching } = useGetRoomType(id);
+  const { data: roomTypeData, isLoading: fetching } = useGetRoomType(id);
 
   const onUpdateSuccess = (res: UpdateRoomResponse) => {
     notify("Room type updated successfully");
