@@ -1,6 +1,9 @@
-import React, { useEffect } from "react";
+import React from "react";
 import { RoomTypeForm } from "@/features/room-types/components/room-type-form/room-type-form";
-import { useUpdateRoomType } from "@/features/room-types/api/update-room-type";
+import {
+  UpdateRoomResponse,
+  useUpdateRoomType,
+} from "@/features/room-types/api/update-room-type";
 import { useNotify } from "@/hooks/useNotify";
 import {
   RoomType,
@@ -14,27 +17,33 @@ export interface UpdateRoomTypeProps {
   onSuccess?: (data?: RoomType) => void;
 }
 
-export const UpdateRoomType = ({
+export const EditRoomType = ({
   id,
   onSuccess,
   onCancel,
 }: UpdateRoomTypeProps) => {
   const notify = useNotify();
-  const { data: updatedResponse, loading, mutate } = useUpdateRoomType(id);
+  const { loading, mutate } = useUpdateRoomType(id);
   const { data: roomTypeData, loading: fetching } = useGetRoomType(id);
-  useEffect(() => {
-    if (updatedResponse) {
-      notify("Room type updated successfully");
-      onSuccess?.();
-    }
-  }, [updatedResponse, notify, onSuccess]);
+
+  const onUpdateSuccess = (res: UpdateRoomResponse) => {
+    notify("Room type updated successfully");
+    onSuccess?.(res.data);
+  };
+
+  const onUpdateError = (error: Error) => {
+    notify(`Update failed: ${error.message}`);
+  };
 
   const onUpdate = (data: RoomTypeFormData) => {
     const payload: Omit<RoomType, "id"> = {
       ...data,
       amenities: data.amenities.map((item) => item.value),
     };
-    mutate(payload);
+    mutate(payload, {
+      onSuccess: onUpdateSuccess,
+      onError: onUpdateError,
+    });
   };
 
   const formatToFormData = (data: RoomType): RoomTypeFormData => ({

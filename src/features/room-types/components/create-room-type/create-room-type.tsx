@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React from "react";
 import { RoomTypeForm } from "@/features/room-types/components/room-type-form/room-type-form";
 import { useCreateRoomType } from "@/features/room-types/api/create-room-type";
 import { useNotify } from "@/hooks/useNotify";
@@ -18,22 +18,20 @@ export const CreateRoomType = ({
   onCancel,
 }: CreateRoomTypeProps) => {
   const notify = useNotify();
-  const { data: createdResponse, loading, mutate } = useCreateRoomType();
+  const { loading, mutate } = useCreateRoomType();
 
   const onCreate = (data: RoomTypeFormData) => {
     const payload: Omit<RoomType, "id"> = {
       ...data,
       amenities: data.amenities.map((item) => item.value),
     };
-    mutate(payload);
+    mutate(payload, {
+      onSuccess: () => {
+        notify("Room type created successfully");
+        onSuccess?.();
+      },
+    });
   };
-
-  useEffect(() => {
-    if (createdResponse) {
-      notify("Room type created successfully");
-      onSuccess?.();
-    }
-  }, [createdResponse, notify, onSuccess]);
 
   return (
     <RoomTypeForm

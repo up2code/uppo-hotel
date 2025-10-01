@@ -6,11 +6,10 @@ export interface UpdateRoomResponse {
   data: RoomType;
 }
 
-export const useUpdateRoomType = (id: string) => {
-  return useMutate<RoomType, UpdateRoomResponse>((data) =>
+export const useUpdateRoomType = (id: string) =>
+  useMutate<RoomType, UpdateRoomResponse>((data) =>
     updateRoomType(`/room-types/${id}`, data),
   );
-};
 
 export const updateRoomType = async (id: string, data: RoomType) => {
   // Simulate updating room data by ID

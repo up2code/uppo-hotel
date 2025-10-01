@@ -1,21 +1,27 @@
 import React from "react";
 
 export const useMutate = <T, U>(mutator: (data: T) => Promise<U>) => {
-  const [data, setData] = React.useState<U | null>(null);
-  const [error, setError] = React.useState<Error | undefined>(undefined);
-  const [loading, setLoading] = React.useState<boolean>(false);
+  const [loading, setLoading] = React.useState(false);
 
-  const mutate = async (data: T) => {
+  const mutate = async (
+    data: T,
+    options?: {
+      onSuccess?: (result: U) => void;
+      onError?: (error: Error) => void;
+    },
+  ) => {
     setLoading(true);
     try {
       const result = await mutator(data);
-      setData(result);
-    } catch (err) {
-      setError(err as Error);
+      options?.onSuccess?.(result);
+      return result;
+    } catch (error: Error | unknown) {
+      options?.onError?.(error as Error);
+      throw error;
     } finally {
       setLoading(false);
     }
   };
 
-  return { data, error, loading, mutate };
+  return { mutate, loading };
 };

@@ -1,11 +1,11 @@
 import type { Meta, StoryObj } from "@storybook/nextjs-vite";
 import { fn } from "storybook/test";
-import { UpdateRoomType } from "./update-room-type";
+import { EditRoomType } from "./edit-room-type";
 
 // More on how to set up stories at: https://storybook.js.org/docs/writing-stories#default-export
-const meta: Meta<typeof UpdateRoomType> = {
-  title: "Features/Room Types/UpdateRoomTypeForm",
-  component: UpdateRoomType,
+const meta: Meta<typeof EditRoomType> = {
+  title: "Features/Room Types/EditRoomTypeForm",
+  component: EditRoomType,
   parameters: {
     layout: "fullscreen",
   },
@@ -15,9 +15,9 @@ const meta: Meta<typeof UpdateRoomType> = {
     onSuccess: fn(),
     onCancel: fn(),
   },
-} satisfies Meta<typeof UpdateRoomType>;
+} satisfies Meta<typeof EditRoomType>;
 
 export default meta;
-type Story = StoryObj<typeof UpdateRoomType>;
+type Story = StoryObj<typeof EditRoomType>;
 
 export const Default: Story = {};
