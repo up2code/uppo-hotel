@@ -6,18 +6,30 @@ export const useQuery = <T>(key: string, fetcher: () => Promise<T>) => {
   const [loading, setLoading] = React.useState<boolean>(true);
 
   React.useEffect(() => {
+    let cancelled = false;
+
     const fetchData = async () => {
       try {
         const result = await fetcher();
-        setData(result);
+        if (!cancelled) {
+          setData(result);
+        }
       } catch (err) {
-        setError(err as Error);
+        if (!cancelled) {
+          setError(err as Error);
+        }
       } finally {
-        setLoading(false);
+        if (!cancelled) {
+          setLoading(false);
+        }
       }
     };
 
     fetchData();
+
+    return () => {
+      cancelled = true;
+    };
   }, [key, fetcher]);
 
   return { data, error, loading };
