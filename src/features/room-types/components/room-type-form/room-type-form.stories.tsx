@@ -84,6 +84,11 @@ export const PlayValidForm: Story = {
         { id: "2", value: "Air Conditioning" },
         { id: "3", value: "Flat-screen TV" },
       ],
+      imageUrls: [
+        { id: "1", value: "https://picsum.photos/200?1" },
+        { id: "2", value: "https://picsum.photos/200?2" },
+        { id: "3", value: "https://picsum.photos/200?3" },
+      ],
     },
   },
   play: async ({ args, canvas, userEvent }) => {
@@ -107,6 +112,11 @@ export const PlayValidForm: Story = {
         },
         { id: "2", value: "Air Conditioning" },
         { id: "3", value: "Flat-screen TV" },
+      ],
+      imageUrls: [
+        { id: "1", value: "https://picsum.photos/200?1" },
+        { id: "2", value: "https://picsum.photos/200?2" },
+        { id: "3", value: "https://picsum.photos/200?3" },
       ],
     };
 

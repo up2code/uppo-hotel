@@ -7,10 +7,16 @@ export interface ImageInputProps {
   label?: string;
   name: string;
   value?: string;
+  disabledPreview?: boolean;
   onChange?: (imageUrl: string | null) => void;
 }
 
-export const ImageInput = ({ value, name, onChange }: ImageInputProps) => {
+export const ImageInput = ({
+  value,
+  name,
+  disabledPreview,
+  onChange,
+}: ImageInputProps) => {
   const { uploadImage, loading, progress, error } = useUploadImage();
   const [imageUrl, setImageUrl] = useState<string | null>(value || null);
   const [isDragOver, setIsDragOver] = useState(false);
@@ -95,7 +101,7 @@ export const ImageInput = ({ value, name, onChange }: ImageInputProps) => {
               </div>
             )}
           </div>
-        ) : imageUrl ? (
+        ) : imageUrl && !disabledPreview ? (
           <>
             <Image
               src={imageUrl}

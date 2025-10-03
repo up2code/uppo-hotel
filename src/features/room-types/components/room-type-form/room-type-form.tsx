@@ -15,6 +15,7 @@ import { Divider } from "@/components/shared/divider";
 import { PromotionPriceInput } from "../promotion-price-input/promotion-price-input";
 import { AmenitiesListInput } from "../amenities-list-input/amenities-list-input";
 import { FormImageInput } from "@/components/forms/form-image-input";
+import { GalleryListInput } from "../gallery-list-input";
 
 const roomTypeFormDataSchema = z.object({
   name: z.string().min(1, { message: "Required" }),
@@ -33,8 +34,11 @@ const roomTypeFormDataSchema = z.object({
     z.object({
       id: z.string().optional(),
       value: z.string().min(1, { message: "Required" }),
-    }),
+    })
   ),
+  imageUrls: z
+    .array(z.object({ id: z.string().optional(), value: z.string() }))
+    .optional(),
 });
 
 export interface RoomTypeFormProps {
@@ -162,6 +166,12 @@ export const RoomTypeForm = ({
             <h3>Room Image</h3>
 
             <FormImageInput name="mainImageUrl" label="Main Image" />
+
+            <Divider />
+
+            <h3>Gallery Images</h3>
+
+            <GalleryListInput />
 
             <Divider />
 

@@ -25,9 +25,15 @@ export interface RoomType {
   hasPromoPrice?: boolean;
   mainImageUrl: string;
   amenities: string[];
+  images?: string[];
 }
 
 export interface AmenityFormItem {
+  id?: string;
+  value: string;
+}
+
+export interface ImageFormItem {
   id?: string;
   value: string;
 }
@@ -42,4 +48,5 @@ export interface RoomTypeFormData {
   hasPromoPrice?: boolean;
   mainImageUrl: string;
   amenities: AmenityFormItem[];
+  imageUrls?: ImageFormItem[];
 }

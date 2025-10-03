@@ -1,7 +1,7 @@
-import { ImageInput } from "@/components/shared/image-input";
 import * as React from "react";
 import { Controller } from "react-hook-form";
 import { useForm } from "../form-provider/use-form";
+import { ImageInput } from "@/components/shared/image-input";
 
 export interface FormImageInputProps {
   label?: string;
