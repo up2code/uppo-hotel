@@ -1,38 +1,6 @@
-import { useQuery } from "@/hooks/useQuery";
-import { RoomType } from "../types/room-type";
-import { useDebounce } from "@/hooks/use-debounce";
+import { RoomType } from "@/features/room-types/types/room-type";
 
-export interface PaginationResponse<T> {
-  total: number;
-  page: number;
-  pageSize: number;
-  items: T[];
-}
-
-export const useListRoomType = (query: string) => {
-  const debouncedSearchTerm = useDebounce(query || "", 300);
-
-  return useQuery<PaginationResponse<RoomType>>(
-    `/room-types?q=${debouncedSearchTerm}`,
-    () => listRoomTypes(),
-  );
-};
-
-export const listRoomTypes = async (): Promise<
-  PaginationResponse<RoomType>
-> => {
-  // Simulate fetching room data by ID
-  await new Promise((resolve) => setTimeout(resolve, 2000));
-
-  return {
-    total: mockRoomTypes.length,
-    page: 0,
-    pageSize: 10,
-    items: mockRoomTypes,
-  } as PaginationResponse<RoomType>;
-};
-
-const mockRoomTypes: RoomType[] = [
+export const mockRoomTypes: RoomType[] = [
   {
     id: "1",
     name: "Deluxe King Suite",

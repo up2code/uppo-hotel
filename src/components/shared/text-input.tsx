@@ -26,15 +26,14 @@ export const TextInput = ({
         disabled ? "opacity-50 cursor-not-allowed" : "",
       )}
     >
-      {(label && (
+      {label ? (
         <label
           htmlFor={inputId}
           className={cn(`mb-1`, disabled ? "text-gray-400" : "")}
         >
           {label}
         </label>
-      )) || <div className="mb-1 h-5" />}{" "}
-      {/* Empty label space */}
+      ) : null}
       <input
         id={inputId}
         name={name}
