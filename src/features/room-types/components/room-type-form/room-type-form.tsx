@@ -34,7 +34,7 @@ const roomTypeFormDataSchema = z.object({
     z.object({
       id: z.string().optional(),
       value: z.string().min(1, { message: "Required" }),
-    })
+    }),
   ),
   imageUrls: z
     .array(z.object({ id: z.string().optional(), value: z.string() }))

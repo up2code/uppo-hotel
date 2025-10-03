@@ -30,12 +30,12 @@ export const GalleryListInput = () => {
     Ref: https: setItems(newFields);
     // Find the first index where the order differs
     const firstDiffIndex = fields.findIndex(
-      (field, index) => field.id !== newFields[index].id
+      (field, index) => field.id !== newFields[index].id,
     );
     if (firstDiffIndex !== -1) {
       // Find the new index of the item that was moved
       const newIndex = newFields.findIndex(
-        (field) => field.id === fields[firstDiffIndex].id
+        (field) => field.id === fields[firstDiffIndex].id,
       );
       // Swap the items
       swap(firstDiffIndex, newIndex);

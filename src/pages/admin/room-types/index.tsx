@@ -1,14 +1,12 @@
 import { ListRoomTypePage } from "@/app/pages/admin/room-types/list-room-type-page";
-import { useRouter } from "next/navigation";
+import { AdminLayout } from "@/components/layouts/admin-layout";
 import React from "react";
 
 const Index = () => {
-  const router = useRouter();
-
   return (
-    <ListRoomTypePage
-      onClickCreate={() => router.push("/admin/room-types/create")}
-    />
+    <AdminLayout pathname="/admin/room-types">
+      <ListRoomTypePage />
+    </AdminLayout>
   );
 };
 

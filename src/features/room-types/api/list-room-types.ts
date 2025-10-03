@@ -1,5 +1,7 @@
 import { useQuery } from "@/hooks/useQuery";
 import { RoomType } from "../types/room-type";
+import { useDebounce } from "@/hooks/use-debounce";
+import React from "react";
 
 export interface PaginationResponse<T> {
   total: number;
@@ -8,15 +10,22 @@ export interface PaginationResponse<T> {
   items: T[];
 }
 
-export const useListRoomType = (key: string) => {
-  return useQuery<PaginationResponse<RoomType>>(key, () => listRoomTypes());
+export const useListRoomType = (query: string) => {
+  const debouncedSearchTerm = useDebounce(query || "", 300);
+
+  return useQuery<PaginationResponse<RoomType>>(
+    `/room-types?q=${debouncedSearchTerm}`,
+    () => listRoomTypes(debouncedSearchTerm),
+  );
 };
 
-export const listRoomTypes = async (): Promise<
-  PaginationResponse<RoomType>
-> => {
+export const listRoomTypes = async (
+  query: string,
+): Promise<PaginationResponse<RoomType>> => {
   // Simulate fetching room data by ID
   await new Promise((resolve) => setTimeout(resolve, 2000));
+
+  console.log("Fetching room types with query:", query);
 
   return {
     total: mockRoomTypes.length,

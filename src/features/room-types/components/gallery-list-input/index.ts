@@ -1,1 +1,1 @@
-export * from './gallery-list-input';
+export * from "./gallery-list-input";

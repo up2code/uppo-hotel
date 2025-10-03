@@ -1,10 +1,10 @@
 import type { Meta, StoryObj } from "@storybook/nextjs-vite";
 
-import { ListRoomTypes } from "./list-room-types";
+import { RoomTypeList } from "./room-type-list";
 
-const meta: Meta<typeof ListRoomTypes> = {
+const meta: Meta<typeof RoomTypeList> = {
   title: "Features/Room Types/ListRoomTypes",
-  component: ListRoomTypes,
+  component: RoomTypeList,
   tags: ["autodocs"],
   parameters: {
     layout: "fullscreen",
@@ -13,7 +13,7 @@ const meta: Meta<typeof ListRoomTypes> = {
 
 export default meta;
 
-type Story = StoryObj<typeof ListRoomTypes>;
+type Story = StoryObj<typeof RoomTypeList>;
 
 export const Default: Story = {
   args: {},
