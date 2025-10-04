@@ -1,16 +1,10 @@
 import type { Meta, StoryObj } from "@storybook/nextjs-vite";
-import {
-  BookingTrendsCard,
-  BookingTrendsCardProps,
-} from "./booking-trends-card";
+import { BookingTrendsCard } from "./booking-trends-card";
 
 // More on how to set up stories at: https://storybook.js.org/docs/writing-stories#default-export
-const meta: Meta<BookingTrendsCardProps> = {
+const meta: Meta<typeof BookingTrendsCard> = {
   title: "Features/Dashboard/BookingTrends",
   component: BookingTrendsCard,
-  parameters: {
-    layout: "centered",
-  },
   tags: ["autodocs"],
 } satisfies Meta<typeof BookingTrendsCard>;
 

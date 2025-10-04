@@ -13,11 +13,6 @@ const chartData = [
   { key: "booked", value: 14, fill: "var(--chart-2)" },
   { key: "available", value: 8, fill: "var(--chart-3)" },
 ];
-const chartData2 = [
-  { key: "occupied", value: 21, fill: "#ED9775" },
-  { key: "booked", value: 14, fill: "#7E8C83" },
-  { key: "available", value: 8, fill: "#DADBE6" },
-];
 
 const chartConfig = {
   occupied: {
@@ -79,31 +74,30 @@ export const RoomAvailabilityCard = () => {
     <Paper className="flex flex-col gap-4 w-full">
       <Header className="flex items-center justify-between gap-4" />
       <div className="flex flex-row gap-4">
-        <ChartContainer
-          config={chartConfig}
-          className="aspect-square min-w-28 flex-1"
-        >
-          <PieChart>
-            <ChartTooltip
-              cursor={false}
-              content={<ChartTooltipContent hideLabel />}
-            />
-            <Pie
-              data={chartData2}
-              dataKey="value"
-              nameKey="key"
-              innerRadius="50%"
-            />
-            <Pie
-              data={chartData}
-              dataKey="value"
-              nameKey="key"
-              innerRadius="70%"
-              outerRadius="90%"
-            />
-          </PieChart>
-        </ChartContainer>
-        <MockLegend className="my-auto" />
+        <div className="realtive flex items-center justify-center flex-1">
+          <ChartContainer
+            config={chartConfig}
+            className="aspect-square max-w-48 flex-1"
+          >
+            <PieChart>
+              <ChartTooltip
+                cursor={false}
+                content={<ChartTooltipContent hideLabel />}
+              />
+
+              <Pie
+                data={chartData}
+                dataKey="value"
+                nameKey="key"
+                innerRadius="60%"
+                outerRadius="100%"
+              />
+            </PieChart>
+          </ChartContainer>
+        </div>
+        <div className="flex items-end m-4">
+          <MockLegend />
+        </div>
       </div>
     </Paper>
   );
