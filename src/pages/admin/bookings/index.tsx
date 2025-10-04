@@ -1,10 +1,11 @@
 import { AdminLayout } from "@/components/layouts/admin-layout";
+import { BookingList } from "@/features/bookings/components/booking-list";
 import React from "react";
 
 const Index = () => {
   return (
     <AdminLayout pathname="/admin/bookings">
-      <div>Booking Management Coming Soon...</div>
+      <BookingList />
     </AdminLayout>
   );
 };
