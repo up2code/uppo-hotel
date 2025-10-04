@@ -3,7 +3,7 @@ import { RoomType } from "../types/room-type";
 
 export default async function getRoomTypeHandler(
   req: NextApiRequest,
-  res: NextApiResponse<RoomType>
+  res: NextApiResponse<RoomType>,
 ) {
   const { id } = req.query;
   if (typeof id !== "string") {

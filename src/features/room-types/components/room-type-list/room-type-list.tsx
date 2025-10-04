@@ -25,7 +25,7 @@ export const RoomTypeList = ({
       const newQuery = e.target.value;
       onQueryChange?.(newQuery);
     },
-    [onQueryChange]
+    [onQueryChange],
   );
 
   return (

@@ -10,16 +10,19 @@ export interface MenuItemProps {
 
 export const MenuItem = ({ path, label, active, icon }: MenuItemProps) => {
   return (
-    <li
-      className={cn(
-        "min-h-20 hover:cursor-pointer px-4 flex items-center gap-4 hover:text-white",
-        active
-          ? "bg-sidebar-accent text-white"
-          : "bg-sidebar-primary text-sidebar-primary-foreground hover:opacity-75 hover:bg-sidebar-accent",
-      )}
-    >
-      {icon}
-      <Link href={path}>{label}</Link>
+    <li>
+      <Link
+        href={path}
+        className={cn(
+          "min-h-20 hover:cursor-pointer px-4 flex items-center gap-4 hover:text-white w-full",
+          active
+            ? "bg-sidebar-accent text-white"
+            : "bg-sidebar-primary text-sidebar-primary-foreground hover:opacity-75 hover:bg-sidebar-accent",
+        )}
+      >
+        {icon}
+        <span>{label}</span>
+      </Link>
     </li>
   );
 };

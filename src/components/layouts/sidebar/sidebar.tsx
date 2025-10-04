@@ -9,6 +9,7 @@ import {
   MessageSquareText,
   LogOut,
 } from "lucide-react";
+import { paths } from "@/config/paths";
 
 export interface SidebarProps {
   pathname?: string;
@@ -19,40 +20,40 @@ export const Sidebar = ({ pathname }: SidebarProps) => {
     <ul className="flex flex-col bg-sidebar-primary">
       <div className="w-full flex items-center justify-center h-16">LOGO</div>
       <MenuItem
-        path="/admin/bookings"
+        path={paths.admin.bookings.list()}
         label="Customer Booking"
         icon={<BriefcaseBusiness className="opacity-60" />}
-        active={pathname === "/admin/bookings"}
+        active={pathname === paths.admin.bookings.list()}
       />
       <MenuItem
-        path="/admin/rooms"
+        path={paths.admin.rooms.list()}
         label="Rooms Management"
         icon={<ClipboardCheck className="opacity-60" />}
-        active={pathname === "/admin/rooms"}
+        active={pathname === paths.admin.rooms.list()}
       />
       <MenuItem
-        path="/admin/hotel"
+        path={paths.admin.hotel()}
         label="Hotel Management"
         icon={<Hotel className="opacity-60" />}
-        active={pathname === "/admin/hotel"}
+        active={pathname === paths.admin.hotel()}
       />
       <MenuItem
-        path="/admin/room-types"
+        path={paths.admin.roomTypes.list()}
         label="Room & Property"
         icon={<Box className="opacity-60" />}
-        active={pathname === "/admin/room-types"}
+        active={pathname === paths.admin.roomTypes.list()}
       />
       <MenuItem
-        path="/admin/analytics"
+        path={paths.admin.dashboard()}
         label="Analytics Dashboard"
         icon={<ChartPie className="opacity-60" />}
-        active={pathname === "/admin/analytics"}
+        active={pathname === paths.admin.dashboard()}
       />
       <MenuItem
-        path="/admin/chatbot"
+        path={paths.admin.chatbot()}
         label="Chatbot Setup"
         icon={<MessageSquareText className="opacity-60" />}
-        active={pathname === "/admin/chatbot"}
+        active={pathname === paths.admin.chatbot()}
       />
       <div className="w-full h-24" />
       <div className="w-full border-1 border-[#455C50]" />

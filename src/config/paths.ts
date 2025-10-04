@@ -7,6 +7,15 @@ export const paths = {
     },
   },
   admin: {
+    bookings: {
+      list: () => "/admin/bookings",
+    },
+    dashboard: () => "/admin/dashboard",
+    chatbot: () => "/admin/chatbot",
+    rooms: {
+      list: () => "/admin/rooms",
+    },
+    hotel: () => "/admin/hotel",
     roomTypes: {
       list: () => "/admin/room-types",
       create: () => "/admin/room-types/create",
