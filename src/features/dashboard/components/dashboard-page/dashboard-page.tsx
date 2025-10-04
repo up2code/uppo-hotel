@@ -1,4 +1,3 @@
-import { Column } from "@/components/layouts/column";
 import * as React from "react";
 import { SummaryCard } from "../summary-card";
 import { ShoppingCart } from "lucide-react";
