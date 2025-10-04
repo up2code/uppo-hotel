@@ -7,13 +7,12 @@ import React from "react";
 
 const Edit = () => {
   const {
-    isFallback,
     query: { id },
   } = useRouter();
 
   return (
     <AdminLayout pathname={paths.admin.roomTypes.list()}>
-      {isFallback ? <CenterLoading /> : <EditRoomType id={id as string} />}
+      {id ? <EditRoomType id={id as string} /> : <CenterLoading />}
     </AdminLayout>
   );
 };

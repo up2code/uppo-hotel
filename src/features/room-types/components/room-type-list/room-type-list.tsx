@@ -6,6 +6,7 @@ import { AdminHeader } from "@/components/layouts/admin-header";
 import { Button } from "@/components/shared/button";
 import Link from "next/link";
 import { paths } from "@/config/paths";
+import { CenterLoading } from "@/components/ui/center-loading";
 
 export interface RoomTypeListProps {
   query?: string;
@@ -24,7 +25,7 @@ export const RoomTypeList = ({
       const newQuery = e.target.value;
       onQueryChange?.(newQuery);
     },
-    [onQueryChange],
+    [onQueryChange]
   );
 
   return (
@@ -46,8 +47,13 @@ export const RoomTypeList = ({
         </div>
       </AdminHeader>
       <div className="p-8 bg-gray-100">
-        {isLoading && <p>Loading...</p>}
         <RoomTypesTable items={data?.items} />
+        {isLoading && (
+          <div className="p-4">
+            {" "}
+            <CenterLoading />{" "}
+          </div>
+        )}
       </div>
     </div>
   );

@@ -3,6 +3,7 @@ export const paths = {
   api: {
     roomTypes: {
       list: () => "/api/room-types",
+      details: (id: string) => `/api/room-types/${id}`,
     },
   },
   admin: {
