@@ -10,6 +10,7 @@ import {
   RoomTypeFormData,
 } from "@/features/room-types/types/room-type";
 import { useGetRoomType } from "../../api/get-room-type";
+import { CenterLoading } from "@/components/ui/center-loading";
 
 export interface UpdateRoomTypeProps {
   id: string;
@@ -52,7 +53,7 @@ export const EditRoomType = ({
   });
 
   if (fetching) {
-    return <div>Loading...</div>;
+    return <CenterLoading />;
   }
 
   if (!roomTypeData) {
