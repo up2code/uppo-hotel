@@ -1,6 +1,9 @@
 export const paths = {
   home: () => "/",
   api: {
+    rooms: {
+      list: () => "/api/rooms",
+    },
     bookings: {
       list: () => "/api/bookings",
     },
