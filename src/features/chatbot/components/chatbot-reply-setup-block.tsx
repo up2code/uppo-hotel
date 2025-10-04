@@ -11,6 +11,7 @@ import { cn } from "@/lib/utils";
 import { Column } from "@/components/layouts/column";
 import { Row } from "@/components/layouts/row";
 import { ChatbotReplyOption, ChatbotReplySetup } from "@/types";
+import { ReplyFormat } from "../types/chatbot-types";
 
 export interface ChatbotReplySetupBlockProps {
   readOnly?: boolean;
@@ -68,13 +69,19 @@ export const ChatbotReplySetupBlock = ({
   const {
     id,
     topic,
-    replyFormat,
+    replyFormat: rootReplyFormat,
     replyTitle,
     replyMessage,
     roomType,
     buttonNameType,
     options,
   } = setup;
+  const [replyFormat, setReplyFormat] =
+    React.useState<ReplyFormat>(rootReplyFormat);
+
+  React.useEffect(() => {
+    setReplyFormat(replyFormat);
+  }, [replyFormat]);
 
   const handleClickEdit = () => {
     onClickEdit?.(id);
@@ -84,11 +91,15 @@ export const ChatbotReplySetupBlock = ({
     onDelete?.();
   };
 
+  const handleReplyFormatChange = (value: string) => {
+    setReplyFormat(value as ReplyFormat);
+  };
+
   return (
     <div
       className={cn(
         `flex flex-col gap-4 p-4 bg-[#F6F7FD] rounded-md min-w-[600px]`,
-        disabled && "opacity-50 pointer-events-none",
+        disabled && "opacity-50 pointer-events-none"
       )}
     >
       <div className="flex flex-row gap-4">
@@ -101,6 +112,7 @@ export const ChatbotReplySetupBlock = ({
             />
             <Dropdown
               defaultValue={replyFormat}
+              onValueChange={handleReplyFormatChange}
               label="Reply format"
               options={[
                 { label: "Room type", value: "room-type" },

@@ -1,10 +1,13 @@
 import { AdminLayout } from "@/components/layouts/admin-layout";
+import { ChatbotSetupForm } from "@/features/chatbot/components/chatbot-setup-form";
 import React from "react";
 
 const Index = () => {
   return (
     <AdminLayout pathname="/admin/chatbot">
-      <div>Chatbot Management Coming Soon...</div>
+      <div className="p-8">
+        <ChatbotSetupForm />
+      </div>
     </AdminLayout>
   );
 };
