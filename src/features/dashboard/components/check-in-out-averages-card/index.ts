@@ -1,1 +1,1 @@
-export * from './check-in-out-averages-card';
+export * from "./check-in-out-averages-card";

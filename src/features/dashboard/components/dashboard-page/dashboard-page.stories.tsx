@@ -11,7 +11,7 @@ const meta: Meta<typeof DashboardPage> = {
   },
   decorators: [
     (Story) => (
-      <div className="p-4">
+      <div className="p-4 bg-[#f5f5f5] min-h-screen">
         <Story />
       </div>
     ),
