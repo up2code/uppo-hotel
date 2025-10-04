@@ -1,1 +1,1 @@
-export * from './revenue-trend-card';
+export * from "./revenue-trend-card";

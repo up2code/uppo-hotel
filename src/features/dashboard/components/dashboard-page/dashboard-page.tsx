@@ -3,6 +3,8 @@ import { SummaryCard } from "../summary-card";
 import { ShoppingCart } from "lucide-react";
 import { RoomAvailabilityCard } from "../room-availability-card/room-availability-card";
 import { BookingTrendsCard } from "../booking-trends-card";
+import { RevenueTrendCard } from "../revenue-trend-card";
+import { OccupancyCard } from "../occupancy-card";
 
 export const DashboardPage = () => {
   return (
@@ -42,6 +44,9 @@ export const DashboardPage = () => {
         <RoomAvailabilityCard />
         <BookingTrendsCard />
       </div>
+
+      <RevenueTrendCard />
+      <OccupancyCard />
     </div>
   );
 };
